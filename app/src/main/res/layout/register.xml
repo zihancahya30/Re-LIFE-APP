@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_margin="25dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="230dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Mulai langkah kecil untuk lingkungan yang lebih baik! Daftar sekarang dan bergabunglah dalam gerakan pengelolaan sampah bersama RE-LIFE"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"/>
+
+    <ToggleButton
+        android:id="@+id/btn_Toggle1"
+        android:layout_width="141dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/black"
+        android:textOn="Register"
+        android:textOff="Register"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Sudah punya akun? Masuk dan lanjutkan perjalananmu untuk membuat Indonesia lebih bersih bersama RE-LIFE!"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"/>
+
+    <ToggleButton
+        android:id="@+id/btn_Toggle2"
+        android:layout_width="141dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/black"
+        android:textOn="Login"
+        android:textOff="Login"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+</LinearLayout>

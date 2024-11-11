@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_margin="25dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:fontFamily="sans-serif-black"
+        android:text="RE-LIFE"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="230dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Selamat datang di RE-LIFE"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:text="Solusi praktis untuk pengelolaan sampah yang lebih bijak! Dengan RE-LIFE, Anda bisa memesan jasa pengumpulan sampah ke bank sampah, belajar memisahkan sampah organik dan anorganik, serta mendapatkan informasi terkini tentang cara pengelolaan sampah yang benar. Bersama, kita bisa mengatasi masalah sampah di Indonesia dan menciptakan lingkungan yang lebih bersih dan sehat!!"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:justificationMode="inter_word"/>
+
+    <ToggleButton
+        android:id="@+id/btn_Toggle1"
+        android:layout_width="141dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/black"
+        android:textOn="Mulai Sekarang"
+        android:textOff="Mulai Sekarang"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+</LinearLayout>
