@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "258800815741",
+    "project_id": "re-life-596d8",
+    "storage_bucket": "re-life-596d8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258800815741:android:119b8bf46d7981d23d6b14",
+        "android_client_info": {
+          "package_name": "pnm.ac.id.re_life"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArC34YN48DFnP3OurEcqQC-l0F8hmWAKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

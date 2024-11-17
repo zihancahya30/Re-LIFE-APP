@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/banner" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:justificationMode="inter_word"
+        android:text="Selamat datang di RE-LIFE, solusi praktis untuk pengelolaan sampah yang lebih bijak! Dengan RE-LIFE, Anda bisa memesan jasa pengumpulan sampah ke bank sampah, belajar memisahkan sampah organik dan anorganik, serta mendapatkan informasi terkini tentang cara pengelolaan sampah yang benar. Bersama, kita bisa mengatasi masalah sampah di Indonesia dan menciptakan lingkungan yang lebih bersih dan sehat!!" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Mulai Sekarang"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"/>
+
+
+</LinearLayout>
