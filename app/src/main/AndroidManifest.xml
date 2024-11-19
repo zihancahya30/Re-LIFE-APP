@@ -26,6 +26,10 @@
         <activity android:name=".Register"/>
         <activity android:name=".RegisterCustomer"/>
         <activity android:name=".RegisterService"/>
+        <activity android:name=".LoginCustomer"/>
+        <activity android:name=".LoginService"/>
+        <activity android:name=".HomeCustomer"/>
+        <activity android:name="HomeService"/>
     </application>
 
 </manifest>

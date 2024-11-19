@@ -1,47 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <EditText
-        android:id="@+id/et_nama"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nama Lengkap"
-        android:inputType="text" />
+        android:layout_marginTop="10dp"
+        android:elevation="10dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <EditText
-        android:id="@+id/et_nomor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nomor Telepon"
-        android:inputType="text" />
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="Back Icon"
+            android:padding="8dp"
+            android:src="@drawable/ic_back_arrow" />
 
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="text" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:text="Register"
+            android:textColor="@color/hijau_tua"
+            android:textSize="25sp" />
+    </androidx.appcompat.widget.Toolbar>
 
-    <EditText
-        android:id="@+id/et_passwd"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="text" />
+        android:layout_height="match_parent"
+        android:padding="20dp">
 
-    <EditText
-        android:id="@+id/et_konfpass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Konfirmasi Password"
-        android:inputType="text" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="40dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_profile_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/default_profile"
+                    app:civ_border_width="0.8sp"
+                    app:civ_border_color="@color/hijau_tua" />
+
+                <ImageView
+                    android:id="@+id/iv_edit"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_pencil" />
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/et_nama"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:hint="Nama Lengkap"
+                android:inputType="text"
+                android:background="@color/hijau_muda" />
+
+            <EditText
+                android:id="@+id/et_nomor"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:hint="Nomor Telepon"
+                android:inputType="text"
+                android:background="@color/hijau_muda" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="text"
+                android:background="@color/hijau_muda" />
+
+            <EditText
+                android:id="@+id/et_passwd"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="text"
+                android:background="@color/hijau_muda" />
+
+            <EditText
+                android:id="@+id/et_konfpass"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:hint="Konfirmasi Password"
+                android:inputType="text"
+                android:background="@color/hijau_muda" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_button" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
