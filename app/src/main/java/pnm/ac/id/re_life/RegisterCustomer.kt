@@ -25,6 +25,7 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
     private lateinit var btnRegister: Button
     private lateinit var civProfileImage: CircleImageView
     private lateinit var ivEdit: ImageView
+    private lateinit var ivBack: ImageView
 
     private var selectedImageUri: Uri? = null
     private val IMAGE_PICK_CODE = 1000
@@ -41,9 +42,11 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
         btnRegister = findViewById(R.id.btnRegister)
         civProfileImage = findViewById(R.id.civ_profile_image)
         ivEdit = findViewById(R.id.iv_edit)
+        ivBack = findViewById(R.id.iv_back)
 
         btnRegister.setOnClickListener(this)
         ivEdit.setOnClickListener { openGallery() } // Klik ikon pencil untuk memilih gambar
+        ivBack.setOnClickListener { onBackPressed() }
     }
 
     override fun onClick(v: View?) {

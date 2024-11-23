@@ -19,8 +19,8 @@ class Register : ComponentActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
-        val RegisCustomer: Button = findViewById(R.id.btnRegCus)
-        val RegisService: Button = findViewById(R.id.btnRegSer)
+        val RegisCustomer: Button = findViewById(R.id.btnRegisterCustomer)
+        val RegisService: Button = findViewById(R.id.btnRegisterService)
         val btnLoginCustomer: Button = findViewById(R.id.btnLoginCustomer)
         val btnLoginService: Button = findViewById(R.id.btnLoginService)
 
@@ -32,11 +32,11 @@ class Register : ComponentActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btnRegCus -> {
+            R.id.btnRegisterCustomer -> {
                 val pindahIntent = Intent(this, RegisterCustomer::class.java)
                 startActivity(pindahIntent)
             }
-            R.id.btnRegSer -> {
+            R.id.btnRegisterService -> {
                 val pindahIntent = Intent(this, RegisterService::class.java)
                 startActivity(pindahIntent)
             }
