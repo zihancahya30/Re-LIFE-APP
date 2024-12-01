@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -74,5 +75,9 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:2.1.0")
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.firebase:firebase-storage")
-
+    implementation (platform("com.google.firebase:firebase-bom:33.6.0"))
+    implementation ("com.google.firebase:firebase-analytics-ktx")
+    implementation ("com.google.firebase:firebase-auth-ktx")
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("com.google.android.material:material:1.6.0")
 }

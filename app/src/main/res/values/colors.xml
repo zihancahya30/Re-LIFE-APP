@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="hijau_tua">#2B6A45</color>
     <color name="hijau_muda">#BEEEC7</color>
+    <color name="hijau_gelap">#0F4D46</color>
+    <color name="hijau_telur">#C7E2E4</color>
 </resources>
