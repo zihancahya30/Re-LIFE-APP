@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Dengan Re-Life, kelola sampah lebih mudah! Pilah sampah yang bisa didaur ulang dan yang tidak bisa, lalu ikuti panduan praktis kami untuk pengelolaan yang tepat. Bersama Re-Life, mari berkontribusi pada lingkungan yang lebih bersih dan hijau. Berikut Tips & Informasi mengenai cara pengelolaan sampah Daur Ulang yang baik dan benar."
+                android:text="Dengan Re-Life, kelola sampah lebih mudah! Pilah sampah yang bisa didaur ulang dan yang tidak bisa, lalu ikuti panduan praktis kami untuk pengelolaan yang tepat. Bersama Re-Life, mari berkontribusi pada lingkungan yang lebih bersih dan hijau. Berikut Tips &amp; Informasi mengenai cara pengelolaan sampah Daur Ulang yang baik dan benar."
                 android:textSize="17sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>

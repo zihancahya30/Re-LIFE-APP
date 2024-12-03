@@ -29,7 +29,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:text="Register"
-            android:textColor="@color/hijau_tua"
+            android:textColor="@color/black"
             android:textSize="25sp" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -124,12 +124,14 @@
 
             <Button
                 android:id="@+id/btnRegister"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="40dp"
                 android:text="Register"
                 android:textAllCaps="false"
+                android:textAlignment="center"
                 android:textColor="@color/white"
+                android:textSize="18dp"
                 android:background="@drawable/rounded_button" />
         </LinearLayout>
     </ScrollView>

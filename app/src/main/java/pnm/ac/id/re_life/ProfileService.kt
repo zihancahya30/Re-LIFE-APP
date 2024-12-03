@@ -2,18 +2,18 @@ package pnm.ac.id.re_life
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 //import kotlinx.android.synthetic.main.activity_home_service.*
 
-class HomeService : AppCompatActivity() {
+class ProfileService : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.home_service)
+        setContentView(R.layout.profile_service)
 
-        // Handle BottomNavigation
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -32,22 +32,11 @@ class HomeService : AppCompatActivity() {
             }
         }
 
-//        // Handle Profile Icon Click
-//        profile_image.setOnClickListener {
-//            startActivity(Intent(this, ProfileService::class.java))
-//        }
-//
-//        // Handle "Tata Cara" ImageView Click
-//        findViewById<ImageView>(R.id.ic_tatacara).setOnClickListener {
-//            startActivity(Intent(this, PengelolaanService::class.java))
-//        }
-//
-//        // Placeholder: Set user data dynamically
-//        val userName = "Zihan Cahya Amelia"
-//        val userAddress = "Jl. Raya Ponorogo No. 123, Madiun"
-//        findViewById<TextView>(R.id.halo_text).text = "Halo, $userName"
-//        findViewById<TextView>(R.id.subtitle_text).text = userAddress
-//
-//        // Placeholder: Implement dynamic map details if needed
+        val btnEditProfile: Button = findViewById(R.id.btnEdit)
+        btnEditProfile.setOnClickListener {
+            val intent = Intent(this, EditProfileService::class.java)
+            startActivity(intent)
+        }
     }
 }
+

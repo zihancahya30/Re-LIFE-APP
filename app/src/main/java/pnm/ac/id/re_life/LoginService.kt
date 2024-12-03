@@ -10,21 +10,22 @@ import androidx.activity.ComponentActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class LoginService: ComponentActivity(), View.OnClickListener {
-    private lateinit var et_email: EditText
-    private lateinit var et_passwd: EditText
+class LoginService : ComponentActivity(), View.OnClickListener {
+
+    private lateinit var etEmail: EditText
+    private lateinit var etPasswd: EditText
     private lateinit var btnLogin: Button
     private lateinit var databaseRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_customer)
+        setContentView(R.layout.login_service)
 
-        et_email = findViewById(R.id.et_email)
-        et_passwd = findViewById(R.id.et_passwd)
+        etEmail = findViewById(R.id.et_email)
+        etPasswd = findViewById(R.id.et_passwd)
         btnLogin = findViewById(R.id.btnLogin)
 
-        databaseRef = FirebaseDatabase.getInstance().getReference("customers")
+        databaseRef = FirebaseDatabase.getInstance().getReference("service")
 
         btnLogin.setOnClickListener(this)
     }
@@ -32,32 +33,35 @@ class LoginService: ComponentActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnLogin -> {
-                val email = et_email.text.toString().trim()
-                val password = et_passwd.text.toString().trim()
+                val email = etEmail.text.toString().trim().lowercase()
+                val password = etPasswd.text.toString().trim()
 
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(this, "Email atau Password tidak boleh kosong", Toast.LENGTH_SHORT).show()
                     return
                 }
 
-                // Mengambil data dari Firebase dan memverifikasi login
-                databaseRef.orderByChild("email").equalTo(email).get().addOnSuccessListener { snapshot ->
-                    if (snapshot.exists()) {
-                        val user = snapshot.children.firstOrNull()
-                        val storedPassword = user?.child("password")?.value.toString()
+                databaseRef.orderByChild("email").equalTo(email).get()
+                    .addOnSuccessListener { snapshot ->
+                        if (snapshot.exists()) {
+                            val user = snapshot.children.firstOrNull()
+                            val storedPassword = user?.child("password")?.value.toString()
 
-                        if (storedPassword == password) {
-                            val pindahIntent = Intent(this, HomeService::class.java)
-                            startActivity(pindahIntent)
+                            if (storedPassword == password) {
+                                Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this, HomeService::class.java)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                Toast.makeText(this, "Password salah", Toast.LENGTH_SHORT).show()
+                            }
                         } else {
-                            Toast.makeText(this, "Password salah", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Email tidak terdaftar", Toast.LENGTH_SHORT).show()
                         }
-                    } else {
-                        Toast.makeText(this, "Email tidak terdaftar", Toast.LENGTH_SHORT).show()
                     }
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Gagal mengakses data", Toast.LENGTH_SHORT).show()
-                }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Gagal mengakses data: ${it.message}", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
     }

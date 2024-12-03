@@ -23,12 +23,12 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
     private lateinit var et_passwd: EditText
     private lateinit var et_konfpass: EditText
     private lateinit var btnRegister: Button
-    private lateinit var civProfileImage: CircleImageView
+    //    private lateinit var civProfileImage: CircleImageView
     private lateinit var ivEdit: ImageView
     private lateinit var ivBack: ImageView
 
-    private var selectedImageUri: Uri? = null
-    private val IMAGE_PICK_CODE = 1000
+//    private var selectedImageUri: Uri? = null
+//    private val IMAGE_PICK_CODE = 1000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +40,12 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
         et_passwd = findViewById(R.id.et_passwd)
         et_konfpass = findViewById(R.id.et_konfpass)
         btnRegister = findViewById(R.id.btnRegister)
-        civProfileImage = findViewById(R.id.civ_profile_image)
+//        civProfileImage = findViewById(R.id.civ_profile_image)
         ivEdit = findViewById(R.id.iv_edit)
         ivBack = findViewById(R.id.iv_back)
 
         btnRegister.setOnClickListener(this)
-        ivEdit.setOnClickListener { openGallery() } // Klik ikon pencil untuk memilih gambar
+//        ivEdit.setOnClickListener { openGallery() }
         ivBack.setOnClickListener { onBackPressed() }
     }
 
@@ -53,19 +53,19 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
         saveData()
     }
 
-    private fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, IMAGE_PICK_CODE)
-    }
+//    private fun openGallery() {
+//        val intent = Intent(Intent.ACTION_PICK)
+//        intent.type = "image/*"
+//        startActivityForResult(intent, IMAGE_PICK_CODE)
+//    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-            selectedImageUri = data?.data
-            civProfileImage.setImageURI(selectedImageUri) // Menampilkan gambar yang dipilih
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+//            selectedImageUri = data?.data
+//            civProfileImage.setImageURI(selectedImageUri) // Menampilkan gambar yang dipilih
+//        }
+//    }
 
     private fun saveData() {
         val name = et_nama.text.toString().trim()
@@ -98,37 +98,45 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
             et_konfpass.error = "Password tidak cocok"
             return
         }
+        saveCustomerData(name, nomorhp, email, password)
 
-        if (selectedImageUri == null) {
-            Toast.makeText(this, "Harap pilih foto profil", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        uploadProfileImage(name, nomorhp, email, password)
+//        if (selectedImageUri == null) {
+//            Toast.makeText(this, "Harap pilih foto profil", Toast.LENGTH_SHORT).show()
+//            return
+//        }
+//
+//        uploadProfileImage(name, nomorhp, email, password)
     }
 
-    private fun uploadProfileImage(name: String, nomorhp: String, email: String, password: String) {
-        val storageRef = FirebaseStorage.getInstance().getReference("profile_images/${UUID.randomUUID()}")
-        selectedImageUri?.let { uri ->
-            storageRef.putFile(uri)
-                .addOnSuccessListener {
-                    storageRef.downloadUrl.addOnSuccessListener { downloadUrl ->
-                        saveCustomerData(name, nomorhp, email, password, downloadUrl.toString())
-                    }
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Gagal mengunggah foto: ${it.message}", Toast.LENGTH_SHORT).show()
-                }
-        }
-    }
+//    private fun uploadProfileImage(name: String, nomorhp: String, email: String, password: String) {
+//        val storageRef = FirebaseStorage.getInstance().getReference("profile_images/${UUID.randomUUID()}")
+//        selectedImageUri?.let { uri ->
+//            storageRef.putFile(uri)
+//                .addOnSuccessListener {
+//                    storageRef.downloadUrl.addOnSuccessListener { downloadUrl ->
+//                        saveCustomerData(name, nomorhp, email, password, downloadUrl.toString())
+//                    }
+//                }
+//                .addOnFailureListener {
+//                    Toast.makeText(this, "Gagal mengunggah foto: ${it.message}", Toast.LENGTH_SHORT).show()
+//                }
+//        }
+//    }
 
-    private fun saveCustomerData(name: String, nomorhp: String, email: String, password: String, profileImageUrl: String) {
+    //    private fun saveCustomerData(name: String, nomorhp: String, email: String, password: String, profileImageUrl: String) {
+//        val customerData = hashMapOf(
+//            "name" to name,
+//            "nomorhp" to nomorhp,
+//            "email" to email,
+//            "password" to password,
+//            "profileImageUrl" to profileImageUrl
+//        )
+    private fun saveCustomerData(name: String, nomorhp: String, email: String, password: String) {
         val customerData = hashMapOf(
             "name" to name,
             "nomorhp" to nomorhp,
             "email" to email,
             "password" to password,
-            "profileImageUrl" to profileImageUrl
         )
 
         val database = FirebaseDatabase.getInstance()
@@ -138,7 +146,7 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
 
-                    val intent = Intent(this, HomeCustomer::class.java)
+                    val intent = Intent(this, HomeService::class.java)
                     startActivity(intent)
                     finish()
 
@@ -155,7 +163,7 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
         et_email.text.clear()
         et_passwd.text.clear()
         et_konfpass.text.clear()
-        civProfileImage.setImageResource(R.drawable.default_profile) // Reset ke gambar default
-        selectedImageUri = null
+//        civProfileImage.setImageResource(R.drawable.default_profile) // Reset ke gambar default
+//        selectedImageUri = null
     }
 }
