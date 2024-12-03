@@ -13,6 +13,12 @@
         android:theme="@style/Theme.RE_LIFE"
         tools:targetApi="31">
         <activity
+            android:name=".tips_customer"
+            android:exported="false" />
+        <activity
+            android:name=".tips"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
@@ -23,15 +29,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register"/>
+        <activity android:name=".Register" />
         <activity
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:name=".RegisterCustomer"/>
+            android:name=".RegisterCustomer"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:name=".RegisterService"/>
-        <activity android:name=".LoginCustomer"/>
-        <activity android:name=".LoginService"/>
+            android:name=".RegisterService"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".LoginCustomer" />
+        <activity android:name=".LoginService" />
     </application>
 
 </manifest>
