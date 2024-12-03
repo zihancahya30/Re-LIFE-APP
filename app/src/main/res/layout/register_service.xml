@@ -29,7 +29,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:text="Register"
-            android:textColor="@color/hijau_tua"
+            android:textColor="@color/black"
             android:textSize="25sp" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -130,8 +130,8 @@
                 android:text="Register"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_button" />
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/hijau_gelap"/>
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

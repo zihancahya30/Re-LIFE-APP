@@ -29,7 +29,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:text="Pengelolaan"
-            android:textColor="@color/hijau_tua"
+            android:textColor="@color/black"
             android:textSize="18sp" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -125,6 +125,7 @@
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:justificationMode="inter_word"/>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
                 android:layout_height="110dp"
@@ -139,6 +140,7 @@
                     android:contentDescription="Tata Cara"
                     android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
+
             <!-- Cara 3 -->
             <TextView
                 android:layout_width="wrap_content"

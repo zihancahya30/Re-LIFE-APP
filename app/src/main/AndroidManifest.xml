@@ -32,6 +32,7 @@
             android:name=".RegisterService"/>
         <activity android:name=".LoginCustomer"/>
         <activity android:name=".LoginService"/>
+        <activity android:name=".HomeService"/>
     </application>
 
 </manifest>
