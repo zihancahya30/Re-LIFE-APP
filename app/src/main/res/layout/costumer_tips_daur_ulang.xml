@@ -36,7 +36,7 @@
                 android:text="Tips &amp; Informasi Mengelola Sampah Daur Ulang"
                 android:textColor="@color/white"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <TextView
@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="1. Sampah yang Dapat Didaur Ulang"
+                android:text="Sampah yang Dapat Didaur Ulang"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -184,6 +184,5 @@
                 android:textColor="@color/black"/>
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
 

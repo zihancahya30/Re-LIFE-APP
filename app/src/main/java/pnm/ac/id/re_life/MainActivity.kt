@@ -22,6 +22,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
         val button2: Button = findViewById(R.id.button2)
 
+
         button2.setOnClickListener(this)
     }
 
