@@ -33,6 +33,8 @@
         <activity android:name=".LoginCustomer"/>
         <activity android:name=".LoginService"/>
         <activity android:name=".HomeService"/>
+        <activity android:name=".PengelolaanService"/>
+        <activity android:name=".ActivityService"/>
+        <activity android:name=".ProfileService"/>
     </application>
-
 </manifest>

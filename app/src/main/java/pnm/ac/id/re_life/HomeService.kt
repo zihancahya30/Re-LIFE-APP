@@ -2,6 +2,7 @@ package pnm.ac.id.re_life
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,10 +38,10 @@ class HomeService : AppCompatActivity() {
 //            startActivity(Intent(this, ProfileService::class.java))
 //        }
 //
-//        // Handle "Tata Cara" ImageView Click
-//        findViewById<ImageView>(R.id.ic_tatacara).setOnClickListener {
-//            startActivity(Intent(this, PengelolaanService::class.java))
-//        }
+        // Handle "Tata Cara" ImageView Click
+        findViewById<ImageView>(R.id.ic_tatacara).setOnClickListener {
+            startActivity(Intent(this, PengelolaanService::class.java))
+        }
 //
 //        // Placeholder: Set user data dynamically
 //        val userName = "Zihan Cahya Amelia"

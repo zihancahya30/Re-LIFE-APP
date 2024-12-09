@@ -12,4 +12,6 @@
     <color name="hijau_gelap">#0F4D46</color>
     <color name="hijau_telur">#C7E2E4</color>
     <color name="merah">#B3261E</color>
+    <color name="background">#FFFFFF</color>
+    <color name="kuning">#FFF9C4</color>
 </resources>
