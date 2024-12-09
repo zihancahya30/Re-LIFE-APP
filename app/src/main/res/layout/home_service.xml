@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:orientation="horizontal">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,7 +16,7 @@
             android:id="@+id/top_view"
             android:layout_width="match_parent"
             android:layout_height="230dp"
-            android:background="@drawable/bg_view">
+            android:background="@drawable/bg_view_top">
 
             <ImageView
                 android:id="@+id/logo"
@@ -179,8 +180,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </FrameLayout>
-
-
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -188,8 +187,5 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_gravity="bottom"
-        app:itemIconTint="@android:color/black"
-        app:itemTextColor="@android:color/black"
         app:menu="@menu/bottom_navigation_menu" />
-
-</FrameLayout>
+</LinearLayout>

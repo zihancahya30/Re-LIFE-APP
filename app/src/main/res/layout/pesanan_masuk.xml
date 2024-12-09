@@ -8,7 +8,6 @@
     android:background="@color/white"
     android:padding="16dp">
 
-    <!-- Toolbar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +33,6 @@
             android:layout_marginStart="10dp" />
     </LinearLayout>
 
-    <!-- CardView -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_pesanan"
         android:layout_width="match_parent"
@@ -105,14 +103,13 @@
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="60dp"
-                    android:backgroundTint="@color/hijau_telur"
-                    app:cornerRadius="30dp"
+                    android:background="@drawable/rounded_button2"
                     android:padding="10dp"
                     android:text="Lihat Peta"
                     android:textAllCaps="false"
                     android:textColor="@color/hijau_gelap"
                     android:drawableStart="@drawable/ic_maps"
-                    android:drawablePadding="8dp"/>
+                    android:drawablePadding="0dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -142,8 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="120dp"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/hijau_telur"
-                app:cornerRadius="30dp"
+                android:background="@drawable/rounded_button2"
                 android:padding="10dp"
                 android:text="Ambil Pesanan"
                 android:textAllCaps="false"

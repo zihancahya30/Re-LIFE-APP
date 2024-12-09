@@ -24,8 +24,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:contentDescription="Back Icon"
-                android:src="@drawable/ic_back_arrow"
-                app:tint="@color/white" />
+                android:src="@drawable/back_white" />
 
             <TextView
                 android:id="@+id/tv_title"

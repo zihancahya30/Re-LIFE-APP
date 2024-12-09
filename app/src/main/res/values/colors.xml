@@ -14,4 +14,11 @@
     <color name="merah">#B3261E</color>
     <color name="background">#FFFFFF</color>
     <color name="kuning">#FFF9C4</color>
+    <color name="primary">#0F4D46</color>
+    <color name="subtitle">#ECFFE6</color>
+    <color name="text_field">#FFFBE6</color>
+    <color name="navbar">#00FF90</color>
+    <color name="main_background">#F3F3F3</color>
+    <color name="secondary">#C7E2E4</color>
+    <color name="denybutton">#B3261E</color>
 </resources>

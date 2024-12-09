@@ -122,8 +122,7 @@
                 android:background="@drawable/rounded_button1"
                 android:text="Ambil Pesanan"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
-                style="@style/ButtonHijauGelap" />
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </ScrollView>
