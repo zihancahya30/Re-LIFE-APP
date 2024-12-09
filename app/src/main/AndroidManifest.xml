@@ -12,15 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RE_LIFE"
         tools:targetApi="31">
-        <meta-data
-            android:name="com.here.sdk.api_key"
-            android:value="@string/here_api_key" />
-        <activity
-            android:name=".tips_customer"
-            android:exported="false" />
-        <activity
-            android:name=".tips"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -41,6 +32,12 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".LoginCustomer" />
         <activity android:name=".LoginService" />
+        <activity android:name=".TipsDaurCustomer"
+            android:exported="true"/>
+        <activity android:name=".TipsNonDaurCustomer"
+            android:exported="true"/>
+        <activity android:name=".HomeActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

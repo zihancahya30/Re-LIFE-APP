@@ -35,7 +35,7 @@
                 android:layout_marginStart="10dp"
                 android:text="Tips &amp; Informasi Mengelola Sampah Daur Ulang"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:textStyle="bold"/>
         </LinearLayout>
 
@@ -44,11 +44,20 @@
             android:paddingLeft="35dp"
             android:paddingTop="10dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="5dp"
             android:text="Pengelolaan Sampah: Langkah Mudah untuk Lingkungan Lebih Baik"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="16dp"
+            android:text="Dengan Re-Life, kelola sampah lebih mudah! Pilah sampah yang bisa didaur ulang dan yang tidak bisa, lalu ikuti panduan praktis kami untuk pengelolaan yang tepat. Bersama Re-Life, mari berkontribusi pada lingkungan yang lebih bersih dan hijau. Berikut Tips &amp; Informasi mengenai cara pengelolaan sampah Daur Ulang yang baik dan benar."
+            android:textSize="12sp"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <ScrollView
@@ -63,15 +72,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Dengan Re-Life, kelola sampah lebih mudah! Pilah sampah yang bisa didaur ulang dan yang tidak bisa, lalu ikuti panduan praktis kami untuk pengelolaan yang tepat. Bersama Re-Life, mari berkontribusi pada lingkungan yang lebih bersih dan hijau. Berikut Tips & Informasi mengenai cara pengelolaan sampah Daur Ulang yang baik dan benar."
-                android:textSize="17sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
