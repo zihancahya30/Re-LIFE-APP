@@ -4,13 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="horizontal">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="56dp">
+    android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/top_view"
@@ -24,8 +18,8 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/logo_relife"
-                android:contentDescription="Logo" />
+                android:contentDescription="Logo"
+                android:src="@drawable/logo_relife" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -42,11 +36,11 @@
                 android:id="@+id/profile_image"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/default_profile"
-                android:contentDescription="Profil" />
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Profil"
+                android:src="@drawable/default_profile" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,23 +74,23 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="-60dp"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="16dp"
+            android:padding="16dp"
             app:cardBackgroundColor="@android:color/white"
-            android:padding="16dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/hijau_telur">
+                android:background="@color/hijau_telur"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
+                    android:background="@color/white"
                     android:contentDescription="Map"
-                    android:scaleType="centerCrop"
-                    android:background="@color/white" />
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -122,19 +116,19 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="20dp"
-            app:cardElevation="4dp"
+            app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="16dp"
-            app:cardBackgroundColor="@android:color/white">
+            app:cardElevation="4dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tata Cara Pengelolaan"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
+                android:background="@color/hijau_telur"
                 android:padding="8dp"
-                android:background="@color/hijau_telur" />
+                android:text="Tata Cara Pengelolaan"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -142,10 +136,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="10dp"
+            android:justificationMode="inter_word"
             android:text="Sebagai Petugas Kebersihan yang baik, anda perlu mengetahui tata cara pengumpulan sampah ke bank sampah yang baik dan benar. baca informasi di bawah ini untuk mengetahuinya."
-            android:textSize="14sp"
             android:textColor="@color/black"
-            android:justificationMode="inter_word"/>
+            android:textSize="14sp" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -156,17 +150,17 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
+                android:layout_gravity="center"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                android:layout_gravity="center">
+                app:cardElevation="0dp">
 
                 <ImageView
                     android:id="@+id/ic_tatacara"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_tatacara"
                     android:contentDescription="Tata Cara"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_tatacara" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -179,8 +173,8 @@
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
         </FrameLayout>
-    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

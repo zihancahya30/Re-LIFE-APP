@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class RegisterService : ComponentActivity(), View.OnClickListener {
@@ -17,10 +18,14 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
     private lateinit var etPasswd: EditText
     private lateinit var etKonfPass: EditText
     private lateinit var btnRegister: Button
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.register_customer)
+        setContentView(R.layout.register_service)
+
+        // Inisialisasi FirebaseAuth
+        firebaseAuth = FirebaseAuth.getInstance()
 
         etNama = findViewById(R.id.et_nama)
         etNomor = findViewById(R.id.et_nomor)
@@ -33,16 +38,17 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        saveData()
+        registerUser()
     }
 
-    private fun saveData() {
+    private fun registerUser() {
         val name = etNama.text.toString().trim()
         val nomorHp = etNomor.text.toString().trim()
         val email = etEmail.text.toString().trim().lowercase() // Normalisasi email ke huruf kecil
         val password = etPasswd.text.toString().trim()
         val konfPass = etKonfPass.text.toString().trim()
 
+        // Validasi input
         if (name.isEmpty()) {
             etNama.error = "Belum mengisi nama kamu"
             return
@@ -68,25 +74,44 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
             return
         }
 
+        // Mendaftarkan user ke Firebase Authentication
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Jika registrasi berhasil, simpan data tambahan ke Firebase Realtime Database
+                    saveAdditionalData(name, nomorHp, email)
+                } else {
+                    // Tampilkan pesan error jika registrasi gagal
+                    Toast.makeText(this, "Registrasi gagal: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    private fun saveAdditionalData(name: String, nomorHp: String, email: String) {
         val serviceData = hashMapOf(
             "name" to name,
             "nomorHp" to nomorHp,
-            "email" to email,
-            "password" to password
+            "email" to email
         )
 
         val database = FirebaseDatabase.getInstance()
         val ref = database.getReference("service")
-        ref.push().setValue(serviceData)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, HomeService::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    Toast.makeText(this, "Gagal menyimpan data: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+        val userId = firebaseAuth.currentUser?.uid
+
+        if (userId != null) {
+            ref.child(userId).setValue(serviceData)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, HomeService::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Gagal menyimpan data: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
                 }
-            }
+        } else {
+            Toast.makeText(this, "User ID tidak ditemukan, data tidak dapat disimpan", Toast.LENGTH_SHORT).show()
+        }
     }
 }

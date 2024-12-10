@@ -25,16 +25,23 @@
         </activity>
         <activity android:name=".Register"/>
         <activity
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/Theme.AppCompat.Light"
             android:name=".RegisterCustomer"/>
         <activity
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/Theme.AppCompat.Light"
             android:name=".RegisterService"/>
         <activity android:name=".LoginCustomer"/>
         <activity android:name=".LoginService"/>
-        <activity android:name=".HomeService"/>
+        <activity
+            android:name=".HomeService"
+            android:theme="@style/Theme.AppCompat.Light">
+        </activity>
+        <activity android:name=".HomeCustomer"
+            android:theme="@style/Theme.AppCompat.Light"/>
         <activity android:name=".PengelolaanService"/>
         <activity android:name=".ActivityService"/>
         <activity android:name=".ProfileService"/>
+        <activity android:name=".TipsDaurCustomer"/>
+        <activity android:name=".TipsNonDaurCustomer"/>
     </application>
 </manifest>

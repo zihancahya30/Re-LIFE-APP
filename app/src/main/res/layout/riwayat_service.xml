@@ -26,9 +26,9 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aktivitas"
+            android:text="Riwayat"
             android:textSize="20sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginStart="10dp" />
     </LinearLayout>
@@ -95,21 +95,6 @@
                         android:textColor="@color/black"
                         android:textSize="14sp" />
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/btn_lihat_peta"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/hijau_telur"
-                    app:cornerRadius="30dp"
-                    android:padding="10dp"
-                    android:text="Lihat Peta"
-                    android:textAllCaps="false"
-                    android:textColor="@color/hijau_gelap"
-                    android:drawableStart="@drawable/ic_maps"
-                    android:drawablePadding="8dp"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -213,15 +198,14 @@
                 </ScrollView>
 
                 <Button
-                    android:id="@+id/btnPesanan"
+                    android:id="@+id/btnSimpan"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/hijau_telur"
-                    app:cornerRadius="30dp"
+                    android:background="@drawable/rounded_button2"
                     android:padding="10dp"
-                    android:text="Ambil Pesanan"
+                    android:text="Simpan"
                     android:textAllCaps="false"
                     android:textColor="@color/hijau_gelap"/>
 

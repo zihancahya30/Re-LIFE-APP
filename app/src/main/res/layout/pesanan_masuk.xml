@@ -97,19 +97,6 @@
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btn_lihat_peta"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:background="@drawable/rounded_button2"
-                    android:padding="10dp"
-                    android:text="Lihat Peta"
-                    android:textAllCaps="false"
-                    android:textColor="@color/hijau_gelap"
-                    android:drawableStart="@drawable/ic_maps"
-                    android:drawablePadding="0dp"/>
             </LinearLayout>
 
             <LinearLayout

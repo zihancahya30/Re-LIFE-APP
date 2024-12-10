@@ -1,0 +1,100 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/main_background">
+
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back_arrow"
+            android:contentDescription="Back Button" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Sedang Berlangsung"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+
+    <!-- Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@drawable/bg_relife_berlangsung"
+        android:layout_gravity="bottom"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:layout_marginTop="-24dp">
+
+        <!-- Detail Alamat -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail Alamat:"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tv_detail_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:background="@drawable/bg_text_field"
+            android:padding="16dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <!-- Status Pengambilan -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status Pengambilan:"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tv_status_pengambilan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_text_field"
+            android:padding="16dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:text="Petugas menuju lokasi" />
+
+        <!-- Button Batal -->
+        <Button
+            android:id="@+id/btn_batalkan"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_red_button"
+            android:padding="16dp"
+            android:text="Batalkan"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</LinearLayout>

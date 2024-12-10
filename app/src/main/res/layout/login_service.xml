@@ -44,5 +44,5 @@
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:background="@drawable/rounded_button1"/>
+        android:background="@drawable/rounded_button"/>
 </LinearLayout>

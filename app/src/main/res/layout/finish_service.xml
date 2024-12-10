@@ -41,7 +41,7 @@
         app:cardBackgroundColor="@color/hijau_gelap"
         app:cardCornerRadius="16dp">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -77,7 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:padding="3dp"
+                        android:padding="1dp"
                         android:background="@drawable/shape_circle"
                         android:src="@drawable/ic_congrats"/>
 
@@ -92,18 +92,20 @@
                             android:id="@+id/tv_ket1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="Kerja Bagus, Kamu sudah membantu masyarakat berpatisipasi untuk peduli terhadap lingkungan!"
                             android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/tv_ket2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
+                            android:gravity="center"
                             android:text="Semua kerja keras akan dibayarkan dengan hasil yang maksimal. Teruslah bantu masyarakat mengelola sampah dengan baik. Lihat Keterangan mengenai aksi peduli lingkunganmu dibawah ini."
                             android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -111,7 +113,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:id="@+id/tv_informasi"
@@ -123,7 +125,7 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <ScrollView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp">
@@ -166,21 +168,20 @@
                         </LinearLayout>
 
                     </LinearLayout>
-                </ScrollView>
+                </LinearLayout>
 
                 <Button
-                    android:id="@+id/btnPesanan"
+                    android:id="@+id/btnSimpan"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/hijau_telur"
-                    app:cornerRadius="30dp"
+                    android:background="@drawable/rounded_button2"
                     android:padding="10dp"
-                    android:text="Ambil Pesanan"
+                    android:text="Simpan"
                     android:textAllCaps="false"
                     android:textColor="@color/hijau_gelap"/>
             </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
