@@ -71,21 +71,25 @@ class HomeService : AppCompatActivity() {
     private fun loadPesananData() {
         val namaCustomerTextView: TextView = findViewById(R.id.nama_customer)
         val alamatPesananTextView: TextView = findViewById(R.id.alamat_pesanan_text)
+        val teleponPesananTextView: TextView = findViewById(R.id.telepon_customer)
 
         database.child("pesanan").limitToLast(1).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (pesananSnapshot in snapshot.children) {
                     val namaCustomer = pesananSnapshot.child("nama").getValue(String::class.java) ?: "-"
                     val alamatPesanan = pesananSnapshot.child("alamat").getValue(String::class.java) ?: "-"
+                    val teleponPesanan = pesananSnapshot.child("telepon").getValue(String::class.java) ?: "-"
 
                     namaCustomerTextView.text = namaCustomer
                     alamatPesananTextView.text = alamatPesanan
+                    teleponPesananTextView.text = teleponPesanan
 
                     // Navigate to PesananMasuk.kt on arrow click
                     findViewById<ImageView>(R.id.iv_back).setOnClickListener {
                         val intent = Intent(this@HomeService, PesananMasuk::class.java)
                         intent.putExtra("nama", namaCustomer)
                         intent.putExtra("alamat", alamatPesanan)
+                        intent.putExtra("telepon", teleponPesanan)
                         startActivity(intent)
                     }
                 }
