@@ -56,17 +56,8 @@
                     android:layout_marginTop="20dp"
                     android:padding="10dp"
                     android:hint="Nama Lengkap"
+                    android:textColor="@color/black"
                     android:inputType="text"
-                    android:background="@color/text_field" />
-
-                <EditText
-                    android:id="@+id/et_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:padding="10dp"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
                     android:background="@color/text_field" />
 
                 <EditText
@@ -76,18 +67,19 @@
                     android:layout_marginBottom="10dp"
                     android:padding="10dp"
                     android:hint="Nomor Telepon"
+                    android:textColor="@color/black"
                     android:inputType="phone"
                     android:background="@color/text_field" />
 
-                <!-- Input Password -->
                 <EditText
-                    android:id="@+id/et_paswd"
+                    android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:padding="10dp"
-                    android:hint="Password"
-                    android:inputType="textPassword"
+                    android:hint="Email"
+                    android:textColor="@color/black"
+                    android:inputType="textEmailAddress"
                     android:background="@color/text_field" />
 
                 <Button

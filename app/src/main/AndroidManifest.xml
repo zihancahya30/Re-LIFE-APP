@@ -41,6 +41,7 @@
         <activity android:name=".PengelolaanService"/>
         <activity android:name=".ActivityService"/>
         <activity android:name=".ProfileService"/>
+        <activity android:name=".EditProfileService"/>
         <activity android:name=".TipsDaurCustomer"/>
         <activity android:name=".TipsNonDaurCustomer"/>
     </application>
