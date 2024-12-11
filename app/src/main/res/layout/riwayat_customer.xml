@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:background="@color/main_background">
 
-    <!-- Toolbar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,7 +30,6 @@
             android:textColor="@color/black" />
     </LinearLayout>
 
-    <!-- Main Content -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,18 +38,16 @@
         android:padding="19dp"
         android:layout_margin="8dp">
 
-        <!-- Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Riwayat"
+            android:text="Telah Dikumpulkan"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
             android:textColor="@color/white"
             android:layout_gravity="center_horizontal" />
 
-        <!-- Keterangan Petugas -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,7 +85,6 @@
             android:textColor="@color/black"
             android:textSize="14sp" />
 
-        <!-- Status Pengambilan -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,7 +103,6 @@
             android:textColor="@color/black"
             android:textSize="14sp" />
 
-        <!-- Informasi -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,17 +121,17 @@
             android:textColor="@color/black"
             android:textSize="14sp" />
 
-        <!-- Hapus Riwayat -->
         <Button
-            android:id="@+id/btn_hapus_riwayat"
+            android:id="@+id/btnPesanan"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/bg_red_button"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#ECFFE6"
+            app:cornerRadius="30dp"
+            android:padding="16dp"
             android:text="Hapus Riwayat"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:padding="12dp"
-            android:layout_gravity="center" />
+            android:textAllCaps="false"
+            android:textColor="@color/primary"/>
     </LinearLayout>
 </LinearLayout>

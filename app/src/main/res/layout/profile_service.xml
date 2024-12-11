@@ -7,6 +7,32 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:paddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/back_tips"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="Back Icon"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_back_arrow" />
+
+                <TextView
+                    android:id="@+id/tv_profil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Profil"
+                    android:textSize="25sp"
+                    android:layout_gravity="start"
+                    android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp"
@@ -14,13 +40,12 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/civ_profile_image"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="70dp"
                     android:layout_marginBottom="20dp"
                     android:src="@drawable/default_profile"
-                    app:civ_border_width="0.8dp"
                     app:civ_border_color="@color/hijau_tua"/>
 
                 <EditText
@@ -28,10 +53,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
                     android:padding="10dp"
                     android:hint="Nama Lengkap"
                     android:inputType="text"
-                    android:background="@color/hijau_muda" />
+                    android:background="@color/text_field" />
 
                 <EditText
                     android:id="@+id/et_email"
@@ -41,7 +67,7 @@
                     android:padding="10dp"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
-                    android:background="@color/hijau_muda" />
+                    android:background="@color/text_field" />
 
                 <EditText
                     android:id="@+id/et_notelp"
@@ -51,7 +77,7 @@
                     android:padding="10dp"
                     android:hint="Nomor Telepon"
                     android:inputType="phone"
-                    android:background="@color/hijau_muda" />
+                    android:background="@color/text_field" />
 
                 <!-- Input Password -->
                 <EditText
@@ -62,7 +88,7 @@
                     android:padding="10dp"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:background="@color/hijau_muda" />
+                    android:background="@color/text_field" />
 
                 <Button
                     android:id="@+id/btnEdit"
@@ -84,7 +110,7 @@
                     android:padding="10dp"
                     android:text="Logout"
                     android:textSize="16sp"
-                    android:textColor="@color/merah"
+                    android:textColor="@color/denybutton"
                     android:clickable="true"
                     android:focusable="true" />
         </LinearLayout>
