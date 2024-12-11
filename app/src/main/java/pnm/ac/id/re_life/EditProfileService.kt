@@ -74,6 +74,16 @@ class EditProfileService : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (!email.endsWith("@gmail.com")) {
+                Toast.makeText(this, "Email harus menggunakan domain @gmail.com", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (password.length < 6) {
+                Toast.makeText(this, "Password harus minimal 6 karakter", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (password != konfirmasiPassword) {
                 Toast.makeText(this, "Password dan konfirmasi password tidak cocok", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener

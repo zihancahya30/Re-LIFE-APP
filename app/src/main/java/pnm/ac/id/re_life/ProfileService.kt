@@ -1,11 +1,13 @@
 package pnm.ac.id.re_life
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -75,27 +77,7 @@ class ProfileService : AppCompatActivity() {
 
         // Menangani tombol Logout
         tvLogout.setOnClickListener {
-            val user = firebaseAuth.currentUser
-            user?.let { firebaseUser ->
-                // Menghapus data pengguna dari Firebase Realtime Database
-                val userId = firebaseUser.uid
-                database.child("service").child(userId).removeValue().addOnSuccessListener {
-                    // Setelah data berhasil dihapus, logout dari Firebase Auth
-                    firebaseUser.delete().addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            // Logout dan pindah ke halaman Register
-                            firebaseAuth.signOut()
-                            val intent = Intent(this, Register::class.java) // Arahkan ke halaman Register
-                            startActivity(intent)
-                            finish() // Tutup activity ProfileService setelah logout
-                        } else {
-                            Toast.makeText(this, "Gagal menghapus akun: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }.addOnFailureListener { exception ->
-                    Toast.makeText(this, "Gagal menghapus data: ${exception.message}", Toast.LENGTH_SHORT).show()
-                }
-            }
+            showLogoutDialog()
         }
     }
 
@@ -121,5 +103,22 @@ class ProfileService : AppCompatActivity() {
                 Toast.makeText(this, "Gagal mengambil data: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun showLogoutDialog() {
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setTitle("Logout")
+        alertDialog.setMessage("Apakah Anda yakin untuk keluar?")
+        alertDialog.setPositiveButton("Iya") { dialog, _ ->
+            dialog.dismiss()
+            firebaseAuth.signOut()
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+            finish()
+        }
+        alertDialog.setNegativeButton("Tidak") { dialog, _ ->
+            dialog.dismiss()
+        }
+        alertDialog.create().show()
     }
 }
