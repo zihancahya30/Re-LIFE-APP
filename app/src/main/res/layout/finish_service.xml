@@ -144,6 +144,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/berat_beratnon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Berat Sampah Non-Daur Ulang :"
@@ -151,6 +152,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/berat_beratda"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="30dp"
@@ -159,6 +161,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/hargadaur"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="30dp"

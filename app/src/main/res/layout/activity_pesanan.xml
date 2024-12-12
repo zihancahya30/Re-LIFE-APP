@@ -81,8 +81,8 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/nilai_nondaur"
+                <EditText
+                    android:id="@+id/etBeratNonDaur"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Masukkan nilai"
@@ -104,8 +104,8 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/nilai_daur"
+                <EditText
+                    android:id="@+id/etBeratDaur"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Masukkan nilai"
