@@ -11,14 +11,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="@color/white"
+        android:background="@drawable/bg_header"
         android:gravity="center_vertical">
 
         <ImageView
             android:id="@+id/btn_back"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_back_arrow"
+            android:src="@drawable/back_white"
             android:contentDescription="Back Button" />
 
         <TextView
@@ -29,48 +29,125 @@
             android:text="Sedang Berlangsung"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
     </LinearLayout>
 
 
     <!-- Content -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/bg_relife_berlangsung"
-        android:layout_gravity="bottom"
+        android:background="@drawable/bg_detail"
         android:padding="16dp"
-        android:clipToPadding="false"
-        android:layout_marginTop="-24dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center"
+        android:clipToPadding="false">
 
         <!-- Detail Alamat -->
         <TextView
+            android:text="Nama Petugas"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Detail Alamat:"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            android:layout_marginBottom="8dp" />
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:contentDescription="Nama Petugas"
+            android:layout_marginTop="5dp"
+            android:id="@+id/namaPetugas"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_border"
+            android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/tv_detail_alamat"
+            android:text="Alamat Lengkap"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:paddingTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:id="@+id/alamatLengkap"
+            android:contentDescription="Alamat Lengkap"
+            android:textStyle="italic"
+            android:textAlignment="center"
             android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:background="@drawable/bg_text_field"
-            android:padding="16dp"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_border"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:text="Detail Alamat"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:paddingTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:id="@+id/addressDetails"
+            android:contentDescription="Detail Alamat"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:background="@drawable/rounded_border"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:text="Nama Lengkap"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:paddingTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:contentDescription="Nama Lengkap"
+            android:layout_marginTop="5dp"
+            android:id="@+id/namaLengkap"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_border"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:text="Nomor Telfon"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:paddingTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:contentDescription="Nomor Telfon"
+            android:layout_marginTop="5dp"
+            android:id="@+id/nomorTelfon"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_border"
+            android:textColor="@color/black"/>
 
         <!-- Status Pengambilan -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Status Pengambilan:"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textColor="@color/white"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="8dp" />
 
         <TextView
@@ -78,10 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_text_field"
-            android:padding="16dp"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:text="Petugas menuju lokasi" />
+            android:padding="16dp"/>
 
         <!-- Button Batal -->
         <Button

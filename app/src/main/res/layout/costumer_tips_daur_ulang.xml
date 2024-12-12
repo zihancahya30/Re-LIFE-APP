@@ -42,7 +42,6 @@
         <TextView
             android:layout_width="340dp"
             android:paddingLeft="35dp"
-            android:paddingTop="10dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:text="Pengelolaan Sampah: Langkah Mudah untuk Lingkungan Lebih Baik"
@@ -71,12 +70,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:paddingTop="10dp"
                 android:text="Sampah yang Dapat Didaur Ulang"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -119,7 +120,7 @@
                 android:justificationMode="inter_word"
                 android:paddingTop="15dp"
                 android:text="1.Pisahkan Sampah Berdasarkan Jenisnya Pisahkan plastik, kertas, kaca, dan logam ke dalam wadah yang berbeda untuk memudahkan proses daur ulang."
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
 
             <!-- Step 2 -->
@@ -139,7 +140,7 @@
                 android:justificationMode="inter_word"
                 android:paddingTop="15dp"
                 android:text="2.Bersihkan Sampah Sebelum Disimpan Pastikan sampah dalam keadaan bersih. Bilas plastik atau kaleng yang telah digunakan untuk makanan agar tidak menarik hama atau bau tidak sedap."
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
 
             <!-- Step 3 -->
@@ -159,7 +160,7 @@
                 android:justificationMode="inter_word"
                 android:paddingTop="15dp"
                 android:text="3.Lipat atau Kumpulkan dengan Efisien Untuk sampah seperti kertas dan kardus, lipat atau susun agar tidak memakan banyak ruang. Untuk botol plastik, tekan hingga rata atau hancurkan terlebih dahulu."
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
 
             <!-- Step 4 -->
@@ -180,7 +181,7 @@
                 android:paddingTop="15dp"
                 android:paddingBottom="10dp"
                 android:text="4.Gunakan Layanan Bank Sampah atau Layanan Daur Ulang Terdekat Kumpulkan sampah yang sudah dipisahkan dan kirimkan ke bank sampah atau layanan daur ulang melalui fitur di aplikasi Re-Life untuk memastikan sampah ini dikelola dengan benar."
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
         </LinearLayout>
     </ScrollView>
