@@ -72,7 +72,7 @@ class PesananMasuk : AppCompatActivity() {
                 ).addOnCompleteListener {
                     if (it.isSuccessful) {
                         // Beralih ke halaman SedangBerlangsung
-                        val intent = Intent(this, SedangBerlangsung::class.java)
+                        val intent = Intent(this, ActivityPesanan::class.java)
                         startActivity(intent)
                         finish()
                     } else {
