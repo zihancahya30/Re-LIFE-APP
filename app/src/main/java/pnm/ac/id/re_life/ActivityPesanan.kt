@@ -4,17 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.FirebaseDatabase
 
 class ActivityPesanan : AppCompatActivity() {
 
     private lateinit var etBeratNonDaur: EditText
     private lateinit var etBeratDaur: EditText
-    private lateinit var tvTotalHargaDaur: TextView
-    private lateinit var tvHargaJasa: TextView
+    private lateinit var tvTotalDaur: TextView
     private lateinit var tvTotalKeseluruhan: TextView
     private lateinit var btnPesanan: Button
+    private lateinit var ivBack: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,49 +26,99 @@ class ActivityPesanan : AppCompatActivity() {
         // Inisialisasi komponen UI
         etBeratNonDaur = findViewById(R.id.etBeratNonDaur)
         etBeratDaur = findViewById(R.id.etBeratDaur)
-        tvTotalHargaDaur = findViewById(R.id.tv_total_harga_daur)
-        tvHargaJasa = findViewById(R.id.tv_harga_jasa)
+        tvTotalDaur = findViewById(R.id.tv_total_harga_daur)
         tvTotalKeseluruhan = findViewById(R.id.tv_total_keseluruhan)
         btnPesanan = findViewById(R.id.btnPesanan)
 
-        // Tambahkan event listener pada tombol
+        ivBack.setOnClickListener {
+            onBackPressed()
+        }
+
+        // Set listener untuk tombol pesanan
         btnPesanan.setOnClickListener {
-            calculateTotal()
-            navigateToFinishService()
+            calculateTotal() // Menghitung total harga
+            saveOrderToFirebase() // Menyimpan pesanan ke Firebase
+            updateOrderStatus() // Mengubah status pesanan menjadi "Sudah diambil"
+            navigateToFinishService() // Navigasi ke halaman selesai
         }
     }
 
     private fun calculateTotal() {
-        // Ambil nilai input
+        // Ambil input dari user
         val beratNonDaur = etBeratNonDaur.text.toString().toDoubleOrNull() ?: 0.0
         val beratDaur = etBeratDaur.text.toString().toDoubleOrNull() ?: 0.0
 
-        // Konstanta harga
+        // Hitung total harga
+        val hargaPerKgDaur = 3000.0
         val hargaJasa = 5000.0
-        val hargaDaurPerKg = 1000.0
+        val totalHargaDaur = beratDaur * hargaPerKgDaur
+        val totalKeseluruhan = totalHargaDaur + hargaJasa
 
-        // Hitung total harga sampah daur ulang
-        val totalHargaDaur = beratDaur * hargaDaurPerKg
-        tvTotalHargaDaur.text = "Total Harga Sampah Daur Ulang: Rp ${totalHargaDaur.toInt()}"
+        // Tampilkan hasil perhitungan pada UI
+        tvTotalDaur.text = "Rp %.2f".format(totalHargaDaur)
+        tvTotalKeseluruhan.text = "Rp %.2f".format(totalKeseluruhan)
+    }
 
-        // Hitung total keseluruhan
-        val totalKeseluruhan = if (beratDaur > 0) {
-            hargaJasa - totalHargaDaur
-        } else {
-            hargaJasa
+    private fun saveOrderToFirebase() {
+        // Ambil nilai input dari user
+        val beratNonDaur = etBeratNonDaur.text.toString().toDoubleOrNull() ?: 0.0
+        val beratDaur = etBeratDaur.text.toString().toDoubleOrNull() ?: 0.0
+        val totalHargaDaur = tvTotalDaur.text.toString()
+        val totalKeseluruhan = tvTotalKeseluruhan.text.toString()
+
+        val order = mapOf(
+            "beratNonDaur" to beratNonDaur,
+            "beratDaur" to beratDaur,
+            "totalHargaDaur" to totalHargaDaur,
+            "hargaJasa" to 5000.0,
+            "totalKeseluruhan" to totalKeseluruhan,
+            "status" to "Belum diambil", // Tambahkan status awal
+            "timestamp" to System.currentTimeMillis() // Waktu pesanan dibuat
+        )
+
+        // Simpan ke Firebase Database
+        val database = FirebaseDatabase.getInstance()
+        val ordersRef = database.getReference("orders")
+
+        ordersRef.push().setValue(order).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(this, "Pesanan berhasil disimpan!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Gagal menyimpan pesanan. Coba lagi!", Toast.LENGTH_SHORT).show()
+            }
         }
+    }
 
-        // Perbarui teks pada TextView
-        tvHargaJasa.text = "Harga Jasa Pengumpulan Sampah: Rp ${hargaJasa.toInt()}"
-        tvTotalKeseluruhan.text = "Total Keseluruhan: Rp ${totalKeseluruhan.toInt()}"
+    private fun updateOrderStatus() {
+        // Ambil referensi Firebase
+        val database = FirebaseDatabase.getInstance()
+        val ordersRef = database.getReference("orders")
+
+        // Cari pesanan terakhir (contoh ini hanya memperbarui satu item tertentu, pastikan ada ID unik di implementasi nyata)
+        ordersRef.limitToLast(1).get().addOnSuccessListener { snapshot ->
+            if (snapshot.children.count() > 0) {
+                val lastOrderKey = snapshot.children.first().key
+                if (lastOrderKey != null) {
+                    ordersRef.child(lastOrderKey).child("status").setValue("Sudah diambil")
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                Toast.makeText(this, "Status pesanan diperbarui menjadi 'Sudah diambil'", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(this, "Gagal memperbarui status. Coba lagi!", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                }
+            } else {
+                Toast.makeText(this, "Tidak ada pesanan untuk diperbarui.", Toast.LENGTH_SHORT).show()
+            }
+        }.addOnFailureListener {
+            Toast.makeText(this, "Gagal mengambil data pesanan.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun navigateToFinishService() {
-        // Navigasi ke halaman finish_service.kt
+        // Navigasi ke halaman selesai
         val intent = Intent(this, FinishService::class.java)
-        intent.putExtra("BERAT_NON_DAUR", berat_beratnon)
-        intent.putExtra("BERAT_DAUR", berat_beratda)
-        intent.putExtra("HARGA_DAUR", hargadaur)
         startActivity(intent)
     }
 }

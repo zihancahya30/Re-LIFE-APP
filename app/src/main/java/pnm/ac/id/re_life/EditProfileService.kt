@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.EmailAuthProvider
@@ -40,6 +41,12 @@ class EditProfileService : AppCompatActivity() {
         etPassword = findViewById(R.id.et_password)
         etKonfirmasiPassword = findViewById(R.id.et_konfirmasi_password)
         btnSimpan = findViewById(R.id.btn_simpanprofile)
+
+        val ivBack: ImageView = findViewById(R.id.iv_back)
+        ivBack.setOnClickListener {
+            // Menavigasi kembali ke halaman sebelumnya
+            onBackPressed()
+        }
 
         // Ambil data pengguna dari Firebase
         getUserData()

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -29,6 +30,11 @@ class LoginService : ComponentActivity(), View.OnClickListener {
         firebaseAuth = FirebaseAuth.getInstance()
 
         btnLogin.setOnClickListener(this)
+        val ivBack: ImageView = findViewById(R.id.iv_back)
+        ivBack.setOnClickListener {
+            // Menavigasi kembali ke halaman sebelumnya
+            onBackPressed()
+        }
     }
 
     override fun onClick(v: View?) {

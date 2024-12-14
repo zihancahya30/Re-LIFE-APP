@@ -1,10 +1,13 @@
 package pnm.ac.id.re_life
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class FinishService : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.finish_service)
@@ -23,5 +26,14 @@ class FinishService : AppCompatActivity() {
         tvBeratNonDaur.text = "Berat Sampah Non-Daur Ulang: $beratNonDaur kg"
         tvBeratDaur.text = "Berat Sampah Daur Ulang: $beratDaur kg"
         tvHargaDaur.text = "Harga Sampah Daur Ulang: Rp $hargaDaur"
+
+        // Menangani klik pada tombol kembali (iv_back)
+        val ivBack = findViewById<ImageView>(R.id.iv_back)
+        ivBack.setOnClickListener {
+            // Arahkan ke ActivityService
+            val intent = Intent(this, ActivityService::class.java)
+            startActivity(intent)
+            finish() // Tutup FinishService
+        }
     }
 }

@@ -87,6 +87,8 @@ class PesananMasuk : AppCompatActivity() {
 
         // Tombol kembali
         findViewById<ImageView>(R.id.iv_back).setOnClickListener {
+            val intent = Intent(this, HomeService::class.java)
+            startActivity(intent)
             finish()
         }
     }

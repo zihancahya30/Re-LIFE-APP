@@ -6,6 +6,7 @@ import android.text.InputType
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -46,6 +47,12 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
         togglePass = createToggleTextView(etPasswd)
         // Tambahkan tombol LIHAT/SEMBUNYIKAN secara programatis untuk etKonfPass
         toggleConfPass = createToggleTextView(etKonfPass)
+
+        val ivBack: ImageView = findViewById(R.id.iv_back)
+        ivBack.setOnClickListener {
+            // Menavigasi kembali ke halaman sebelumnya
+            onBackPressed()
+        }
     }
 
     override fun onClick(v: View?) {

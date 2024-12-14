@@ -241,6 +241,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_gravity="bottom"
+            android:background="@android:color/transparent"
             app:itemIconTint="@android:color/black"
             app:itemTextColor="@android:color/black"
             app:menu="@menu/bottom_navigation_menu" />
