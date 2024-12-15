@@ -18,6 +18,7 @@ class ProfileService : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {
+                    startActivity(Intent(this, HomeService::class.java))
                     true
                 }
                 R.id.nav_activity -> {
@@ -25,7 +26,6 @@ class ProfileService : AppCompatActivity() {
                     true
                 }
                 R.id.nav_profile -> {
-                    startActivity(Intent(this, ProfileService::class.java))
                     true
                 }
                 else -> false
@@ -39,4 +39,3 @@ class ProfileService : AppCompatActivity() {
         }
     }
 }
-

@@ -29,11 +29,11 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:text="Register"
-            android:textColor="@color/black"
+            android:textColor="@color/hijau_tua"
             android:textSize="25sp" />
     </androidx.appcompat.widget.Toolbar>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp">
@@ -76,7 +76,7 @@
                 android:ems="10"
                 android:hint="Nama Lengkap"
                 android:inputType="text"
-                android:background="@color/hijau_muda" />
+                android:background="@color/text_field" />
 
             <EditText
                 android:id="@+id/et_nomor"
@@ -87,7 +87,7 @@
                 android:ems="10"
                 android:hint="Nomor Telepon"
                 android:inputType="text"
-                android:background="@color/hijau_muda" />
+                android:background="@color/text_field" />
 
             <EditText
                 android:id="@+id/et_email"
@@ -98,7 +98,7 @@
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="text"
-                android:background="@color/hijau_muda" />
+                android:background="@color/text_field" />
 
             <EditText
                 android:id="@+id/et_passwd"
@@ -109,7 +109,7 @@
                 android:ems="10"
                 android:hint="Password"
                 android:inputType="text"
-                android:background="@color/hijau_muda" />
+                android:background="@color/text_field" />
 
             <EditText
                 android:id="@+id/et_konfpass"
@@ -120,7 +120,7 @@
                 android:ems="10"
                 android:hint="Konfirmasi Password"
                 android:inputType="text"
-                android:background="@color/hijau_muda" />
+                android:background="@color/text_field" />
 
             <Button
                 android:id="@+id/btnRegister"
@@ -130,8 +130,8 @@
                 android:text="Register"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/hijau_gelap"/>
+                android:background="@drawable/rounded_button" />
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+
 </LinearLayout>

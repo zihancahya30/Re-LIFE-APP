@@ -1,4 +1,4 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,10 +7,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <!-- Header -->
 
         <!-- Tips Section -->
         <LinearLayout
@@ -38,7 +36,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="@font/poppins_medium"
                     android:paddingStart="8dp"
                     android:text="RE-LIFE"
                     android:textColor="#FFFFFF"
@@ -57,16 +55,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:paddingTop="25dp"
-                android:text="Halo, Budi"
+                android:paddingTop="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Halo, Re-Lifer!!!"
                 android:textColor="#FFFFFF"
                 android:textSize="40sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/poppins_regular"
                 android:paddingTop="5dp"
                 android:text="Ayo Mulai Mengumpulkan Sampah"
                 android:textColor="#FFFFFF"
@@ -77,12 +75,12 @@
                 android:id="@+id/btnKumpulkanSampah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_button"
+                android:background="@drawable/bg_button_kumpul"
                 android:drawablePadding="8dp"
                 android:padding="12dp"
-                android:text="Kumpulkan Sampah"
-                android:textColor="#000000" />
+                android:text="Kumpulkan Sampah" />
         </LinearLayout>
 
         <TextView
@@ -92,7 +90,7 @@
             android:textSize="16sp"
             android:textColor="#000000"
             android:paddingLeft="10dp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/poppins_regular"
             android:paddingTop="16dp" />
 
         <!-- Tips Card: Sampah Daur Ulang -->
@@ -101,18 +99,17 @@
             android:layout_height="80dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="16dp"
-            android:onClick="handleClick">
+            android:paddingTop="16dp">
 
             <!-- Background Gambar dengan Rounded Corners -->
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/btnSampahDaurUlang"
                 android:src="@drawable/bg_tips"
                 android:scaleType="centerCrop"
                 android:background="@drawable/rounded_image"
                 android:clipToOutline="true" />
-
 
             <!-- Text di Atas Gambar -->
             <TextView
@@ -121,7 +118,7 @@
                 android:text="Sampah Daur Ulang"
                 android:textSize="16sp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/poppins_regular"
                 android:layout_gravity="center" />
         </FrameLayout>
 
@@ -131,14 +128,14 @@
             android:layout_height="80dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="16dp"
-            android:onClick="handleClick">
+            android:paddingTop="16dp">
 
             <!-- Background Gambar -->
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/bg_tips"
+                android:id="@+id/btnSampahNonDaurUlang"
                 android:scaleType="centerCrop"
                 android:background="@drawable/rounded_image"
                 android:clipToOutline="true" />
@@ -150,50 +147,71 @@
                 android:text="Sampah Non-Daur Ulang"
                 android:textSize="16sp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/poppins_regular"
                 android:layout_gravity="center" />
         </FrameLayout>
 
-
-        <!-- Statistics Section -->
+        <!-- Total Berat Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lihat Seberapa Jauh kamu Berpartisipasi!!!"
+            android:text="Lihat Seberapa Jauh Kamu Berpartisipasi!!!"
             android:textSize="16sp"
             android:textColor="#000000"
-            android:fontFamily="sans-serif-medium"
-            android:paddingTop="10dp"
-            android:paddingLeft="10dp"/>
+            android:padding="16dp"
+            android:fontFamily="@font/poppins_regular" />
 
-        <LinearLayout
-            android:layout_width="376dp"
-            android:layout_height="87dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/bg_statistic"
-            android:orientation="vertical"
-            android:padding="16dp">
+        <!-- Total Berat Daur Ulang -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Berat Sampah Daur Ulang"
+            android:layout_marginStart="16dp"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="Total Sampah : 2500 Kg"
-                android:textColor="#000000"
-                android:textSize="14sp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_text_field"
+            android:focusable="false"
+            android:hint="0 Kg"
+            android:padding="8dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="Sampah dikumpulkan/bulan: 250"
-                android:textColor="#000000"
-                android:textSize="14sp" />
-        </LinearLayout>
+        <!-- Total Berat Non Daur Ulang -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Berat Sampah Non Daur Ulang"
+            android:layout_marginStart="16dp"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular" />
 
-        <!-- Bottom Navigation -->
-
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_text_field"
+            android:focusable="false"
+            android:hint="0 Kg"
+            android:padding="8dp" />
 
     </LinearLayout>
-</ScrollView>
+
+    <!-- Bottom Navbar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_nav_home"
+        android:layout_gravity="bottom"
+        android:layout_weight="@integer/material_motion_duration_long_1"
+        app:menu="@menu/bottom_navigation_menu"
+        android:background="@drawable/bg_navbar"
+        app:itemIconTint="@color/selector_nav_icon"
+        app:itemTextColor="@color/selector_nav_text"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

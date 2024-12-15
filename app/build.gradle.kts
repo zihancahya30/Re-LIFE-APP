@@ -64,7 +64,6 @@ dependencies {
     implementation(libs.firebase.storage.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.cardview)
-    implementation(libs.androidx.gridlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -80,6 +79,6 @@ dependencies {
     implementation ("com.google.firebase:firebase-analytics-ktx")
     implementation ("com.google.firebase:firebase-auth-ktx")
     implementation ("androidx.cardview:cardview:1.0.0")
-    implementation ("com.google.android.material:material:1.10.0")
-    implementation ("androidx.gridlayout:gridlayout:1.0.0")
+    implementation ("com.google.android.material:material:1.12.0")
+    implementation ("androidx.fragment:fragment-ktx:1.8.5")
 }

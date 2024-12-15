@@ -18,10 +18,10 @@ class ActivityService : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {
+                    startActivity(Intent(this, HomeService::class.java))
                     true
                 }
                 R.id.nav_activity -> {
-                    startActivity(Intent(this, ActivityService::class.java))
                     true
                 }
                 R.id.nav_profile -> {

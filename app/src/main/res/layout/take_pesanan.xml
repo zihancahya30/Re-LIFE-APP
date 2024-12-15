@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- Header Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="Back Icon"
+            android:src="@drawable/ic_back_arrow"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aktivitas"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp" />
+    </LinearLayout>
+
+    <!-- Status Layout -->
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_background"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_status1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menuju Lokasi"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Main Content -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/bg_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_background" />
+
+        <LinearLayout
+            android:id="@+id/bottom_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_view_bottom"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_alamat_rumah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Keterangan Pelanggan :"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="340dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:background="#FFF9C4"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama :"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="No.Telp :"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_alamat_kantor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text="Detail Alamat :"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="340dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:background="#FFF9C4"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:id="@+id/btn_batalkan"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button2"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Batalkan"
+                android:textAllCaps="false"
+                android:textColor="@color/hijau_gelap"
+                android:drawableStart="@drawable/ic_cancel"
+                android:drawablePadding="0dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

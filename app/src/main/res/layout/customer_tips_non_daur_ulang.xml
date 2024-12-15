@@ -33,22 +33,30 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
-                android:text="Tips &amp; Informasi Mengelola Sampah Daur Ulang"
-                android:textStyle="bold"
+                android:text="Tips &amp; Informasi Mengelola Sampah Non-Daur Ulang"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <TextView
             android:layout_width="340dp"
             android:paddingLeft="35dp"
-            android:paddingTop="10dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="5dp"
             android:text="Pengelolaan Sampah: Langkah Mudah untuk Lingkungan Lebih Baik"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="35dp"
+            android:layout_marginBottom="16dp"
+            android:text="Dengan Re-Life, kelola sampah lebih mudah! Pilah sampah yang bisa didaur ulang dan yang tidak bisa, lalu ikuti panduan praktis kami untuk pengelolaan yang tepat. Bersama Re-Life, mari berkontribusi pada lingkungan yang lebih bersih dan hijau. Berikut Tips &amp; Informasi mengenai cara pengelolaan sampah Daur Ulang yang baik dan benar."
+            android:textSize="12sp"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <ScrollView
@@ -62,23 +70,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Dengan Re-Life, kelola sampah lebih mudah! Pilah sampah yang bisa didaur ulang dan yang tidak bisa, lalu ikuti panduan praktis kami untuk pengelolaan yang tepat. Bersama Re-Life, mari berkontribusi pada lingkungan yang lebih bersih dan hijau. Berikut Tips &amp; Informasi mengenai cara pengelolaan sampah Non-Daur Ulang yang baik dan benar."
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:justificationMode="inter_word"/>
+            android:orientation="vertical"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="2. Sampah yang Tidak Dapat Didaur Ulang"
+                android:paddingTop="10dp"
+                android:text="Sampah yang Tidak Dapat Didaur Ulang"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -121,7 +121,7 @@
                 android:justificationMode="inter_word"
                 android:paddingTop="15dp"
                 android:text="1.Identifikasi Sampah Tidak Dapat Didaur Ulang Kenali jenis-jenis sampah yang tidak bisa diolah kembali agar Anda tahu cara menanganinya. Pada aplikasi Re-Life, tersedia panduan untuk mengenali jenis sampah ini."
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
 
             <!-- Step 2 -->
@@ -141,7 +141,7 @@
                 android:justificationMode="inter_word"
                 android:paddingTop="15dp"
                 android:text="2.Pisahkan dari Sampah Lain Pastikan sampah ini tidak bercampur dengan sampah yang dapat didaur ulang, karena akan menyulitkan proses pengolahan lebih lanjut."
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
 
             <!-- Step 3 -->
@@ -161,7 +161,7 @@
                 android:justificationMode="inter_word"
                 android:paddingTop="15dp"
                 android:text="3.Gunakan Kantong Sampah Khusus Kumpulkan sampah ini dalam kantong sampah khusus agar mudah dibedakan dan dibuang ke tempat yang semestinya."
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
 
             <!-- Step 4 -->
@@ -182,7 +182,7 @@
                 android:paddingTop="15dp"
                 android:paddingBottom="10dp"
                 android:text="4.Manfaatkan Jasa Pengelolaan Sampah Khusus Untuk sampah seperti limbah elektronik, popok, atau bahan berbahaya lainnya, Anda bisa memanfaatkan jasa pengelolaan limbah khusus yang tersedia melalui aplikasi Re-Life. Layanan ini membantu Anda memastikan sampah tersebut dibuang atau dikelola dengan cara yang aman dan ramah lingkungan."
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
 
             <ImageView
@@ -201,7 +201,7 @@
                 android:paddingTop="15dp"
                 android:paddingBottom="10dp"
                 android:text="5.Kurangi Penggunaan Produk Sekali Pakai Sebisa mungkin, gunakan produk yang lebih tahan lama atau dapat diisi ulang untuk mengurangi volume sampah yang tidak bisa didaur ulang."
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>

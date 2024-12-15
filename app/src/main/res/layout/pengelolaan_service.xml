@@ -3,35 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:elevation="10dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:background="@color/hijau_gelap"
+        android:padding="20dp">
 
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="Back Icon"
-            android:padding="8dp"
-            android:src="@drawable/ic_back_arrow" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="Back Icon"
+                android:src="@drawable/back_white" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Pengelolaan"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp"
-            android:text="Pengelolaan"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-    </androidx.appcompat.widget.Toolbar>
+            android:layout_marginTop="10dp"
+            android:text="Pengelolaan Sampah: Langkah Mudah untuk Lingkungan Lebih Baik"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Untuk mengelola sampah dengan benar sebagai petugas yang baik, anda harus mempelajari cara mengelola sampah yang baik dan benar dan juga aman. Dibawah ini merupakan tata cara pengelolaan sampah dari sampah daur ulang maupun non-daur ulang. Baca informasi selengkapnya dibawah ini."
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:justificationMode="inter_word" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,90 +64,41 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start">
+            android:layout_height="wrap_content">
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/main_picture"
+                    android:contentDescription="Tata Cara"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tata cara 1 -->
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textSize="16sp"
-                android:text="Pengelolaan Sampah: Langkah Mudah untuk Lingkungan Lebih Baik"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:text="Untuk mengelola sampah dengan benar sebagai petugas yang baik, anda harus mempelajari cara mengelola sampah yang baik dan benar dan juga aman. dibawah ini merupakan tata cara pengelolaan sampah dari sampah daur ulang maupun non-daur ulang. baca informasi selengkapnya dibawah ini."
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:justificationMode="inter_word"/>
-            <View
-                android:id="@+id/custom_line"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/line" />
-            <androidx.cardview.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="110dp"
-                android:layout_margin="16dp"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="16dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_tatacara"
-                    android:contentDescription="Tata Cara"
-                    android:scaleType="centerCrop" />
-            </androidx.cardview.widget.CardView>
-            <!-- Cara 1 -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:text="> Persiapan Sebelum Bertugas"
                 android:textSize="14sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10sp"
-                android:text="Sebelum Bertugas untuk mengambil sampah daur ulang, pastikan anda sudah menggunakan baju dan alat pelindung seperti masker dan sarung tangan. jangan lupa siapkan karung untuk antisipasi jika ada benda benda tajam ataupun berkarat. Siapkan juga kendaraan yang digunakan untuk mengambil sampah tersebut."
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:justificationMode="inter_word"/>
-            <androidx.cardview.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="110dp"
-                android:layout_margin="16dp"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="16dp">
+                android:textStyle="bold"
+                android:textColor="@color/black" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_tatacara"
-                    android:contentDescription="Tata Cara"
-                    android:scaleType="centerCrop" />
-            </androidx.cardview.widget.CardView>
-            <!-- Cara 2 -->
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text=">  Pengambilan Sampah Dari Rumah Customer"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Sebelum bertugas untuk mengambil sampah daur ulang, pastikan anda sudah menggunakan baju dan alat pelindung seperti masker dan sarung tangan. Jangan lupa siapkan karung untuk antisipasi jika ada benda benda tajam ataupun berkarat. Siapkan juga kendaraan yang digunakan untuk mengambil sampah tersebut."
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10sp"
-                android:text="Untuk pengambilan sampah daur ulang ataupun sampah non daur ulang dari rumah customer terdapat sedikit perbedaan."
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:justificationMode="inter_word"/>
+                android:justificationMode="inter_word" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
@@ -136,27 +110,99 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_tatacara"
+                    android:src="@drawable/cara1"
                     android:contentDescription="Tata Cara"
                     android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
 
-            <!-- Cara 3 -->
+            <!-- Tata cara 2 -->
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="> Pengambilan Sampah Dari Rumah Customer"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Untuk pengambilan sampah daur ulang ataupun sampah non-daur ulang dari rumah customer terdapat sedikit perbedaan."
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:justificationMode="inter_word" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="110dp"
+                android:layout_margin="16dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/picture1"
+                    android:contentDescription="Tata Cara"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/picture2"
+                        android:contentDescription="Tata Cara"
+                        android:scaleType="centerCrop" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/picture3"
+                        android:contentDescription="Tata Cara"
+                        android:scaleType="centerCrop" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Tata cara 3 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="> Sampah Daur Ulang"
                 android:textSize="14sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10sp"
-                android:text="untuk sampah daur ulang pastikan anda telah mengenakan peralatan keamanan lengkap seperti masker dan sarung tangan. Siapkan Karung Khusus untuk barang barang seperti kaca, besi dan plastik. Setelah anda masukan ke karung, timbang sampah tersebut dan masukan total dari berat sampah daur ulang tersebut ke aplikasi dan nanti akan muncul harga dari sampah daur ulang tersebut. untuk kardus anda bisa langsung menimbang nya tanpa harus dimasukan ke karung, tapi terlebih dahulu lipat kardus agaar lebih mudah untuk diangkat. Setelah Ditimbang akan muncul sejumlah nominal uang yang anda berikan ke customer"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="untuk sampah daur ulang pastikan anda telah mengenakan peralatan keamanan lengkap seperti masker dan sarung tangan. Siapkan Karung Khusus untuk barang barang seperti kaca, besi dan plastik. Setelah anda masukan ke karung, timbang sampah tersebut dan masukan total dari berat sampah daur ulang tersebut ke aplikasi dan nanti akan muncul harga dari sampah daur ulang tersebut. untuk kardus anda bisa langsung menimbang nya tanpa harus dimasukan ke karung, tapi terlebih dahulu lipat kardus agaar lebih mudah untuk diangkat. Setelah Ditimbang akan muncul sejumlah nominal uang yang anda berikan ke customer."
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:justificationMode="inter_word"/>
+                android:justificationMode="inter_word" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
                 android:layout_height="110dp"
@@ -167,26 +213,45 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_tatacara"
+                    android:src="@drawable/picture4"
                     android:contentDescription="Tata Cara"
                     android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
-            <!-- Cara 4 -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="110dp"
+                android:layout_margin="16dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/picture5"
+                    android:contentDescription="Tata Cara"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tata cara 4 -->
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="> Sampah Non-Daur Ulang"
                 android:textSize="14sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="untuk sampah non daur ulang bahwa customer sudah mengumpulkan sampah tersebut ke kresek merah, lalu anda bisa langsung menaikan sampah tersebut ke kendaraan pengangkut sampah."
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:justificationMode="inter_word"/>
+                android:justificationMode="inter_word" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
                 android:layout_height="110dp"
@@ -197,26 +262,80 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_tatacara"
+                    android:src="@drawable/picture6"
                     android:contentDescription="Tata Cara"
                     android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
-            <!-- Cara 5 -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="110dp"
+                android:layout_margin="16dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/picture7"
+                    android:contentDescription="Tata Cara"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tata cara 5 -->
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="> Pengumpulan Sampah ke Bank Sampah"
                 android:textSize="14sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="jika anda sudah mengambil sampah daur ulang ataupun non-daur ulang dari customer, anda bisa langsung mengumpulkan sampah tersebut ke bank sampah. Perlu diperhatikan bahwasanya anda perlu menyortir sampah - sampah tersebut sesuai dengan jenis nya pada tempat yang sudah disediakan."
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:justificationMode="inter_word"/>
+                android:justificationMode="inter_word" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/picture8"
+                        android:contentDescription="Tata Cara"
+                        android:scaleType="centerCrop" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/picture9"
+                        android:contentDescription="Tata Cara"
+                        android:scaleType="centerCrop" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
                 android:layout_height="110dp"
@@ -227,43 +346,64 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_tatacara"
+                    android:src="@drawable/picture10"
                     android:contentDescription="Tata Cara"
                     android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
-            <!-- Cara 6 -->
+
+            <!-- Tata cara 6 -->
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="> Penyortiran Sampah Daur Ulang"
                 android:textSize="14sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="untuk sampah daur ulang, anda harus memisahkan antara besi, kaca, plastik, dan kardus pada setiap tempat yang di sediakan. jangan sampah tercampur pada tempat yang sama karena cara pengolahan sampah daur ulang tersebut berbeda. pastikan sampah besi berada di Lot A, sampah kaca berada di Lot B, sampah Plastik ada di Lot C, dan sampah Kardus di Lot D."
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:justificationMode="inter_word"/>
-            <!-- Cara 7 -->
+                android:justificationMode="inter_word" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="110dp"
+                android:layout_margin="16dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/picture11"
+                    android:contentDescription="Tata Cara"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tata cara 7 -->
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="> Pengumpulan Sampah Non-daur ulang> "
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="> Pengumpulan Sampah Non-daur ulang"
                 android:textSize="14sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="untuk sampah non-daur ulang, anda bisa mengumpulkan sampah tersebut ke Lot E. sampah tersebut nantinya akan melalui proses peleburan dengan cara dibakar dan melalui proses penyaringan untuk sampah dan udara agar tidak mencemari lingkungan."
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:justificationMode="inter_word"/>
+                android:justificationMode="inter_word" />
+
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
