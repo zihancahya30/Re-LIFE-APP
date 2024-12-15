@@ -63,5 +63,8 @@
         <activity
             android:name=".PesananDibatalkan"
             android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".AktivitasCustomer"
+            android:theme="@style/Theme.AppCompat.Light" />
     </application>
 </manifest>
