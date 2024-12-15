@@ -99,8 +99,7 @@
             android:layout_height="80dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="16dp"
-            android:onClick="handleClick">
+            android:paddingTop="16dp">
 
             <!-- Background Gambar dengan Rounded Corners -->
             <ImageView
@@ -111,7 +110,6 @@
                 android:scaleType="centerCrop"
                 android:background="@drawable/rounded_image"
                 android:clipToOutline="true" />
-
 
             <!-- Text di Atas Gambar -->
             <TextView
@@ -130,8 +128,7 @@
             android:layout_height="80dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="16dp"
-            android:onClick="handleClick">
+            android:paddingTop="16dp">
 
             <!-- Background Gambar -->
             <ImageView
@@ -154,53 +151,67 @@
                 android:layout_gravity="center" />
         </FrameLayout>
 
-
-        <!-- Statistics Section -->
+        <!-- Total Berat Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lihat Seberapa Jauh kamu Berpartisipasi!!!"
+            android:text="Lihat Seberapa Jauh Kamu Berpartisipasi!!!"
             android:textSize="16sp"
             android:textColor="#000000"
-            android:fontFamily="@font/poppins_regular"
-            android:paddingTop="10dp"
-            android:paddingLeft="10dp"/>
+            android:padding="16dp"
+            android:fontFamily="@font/poppins_regular" />
 
-        <LinearLayout
-            android:layout_width="376dp"
-            android:layout_height="87dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/bg_statistic"
-            android:orientation="vertical"
-            android:padding="16dp">
+        <!-- Total Berat Daur Ulang -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Berat Sampah Daur Ulang"
+            android:layout_marginStart="16dp"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Total Sampah : 2500 Kg"
-                android:textColor="#000000"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Sampah dikumpulkan/bulan: 250"
-                android:textColor="#000000"
-                android:textSize="14sp" />
-        </LinearLayout>
-        <!-- Bottom Navigation -->
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@color/white"
-            app:menu="@menu/bottom_navigation_menu" />
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_text_field"
+            android:focusable="false"
+            android:hint="0 Kg"
+            android:padding="8dp" />
+
+        <!-- Total Berat Non Daur Ulang -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Berat Sampah Non Daur Ulang"
+            android:layout_marginStart="16dp"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_text_field"
+            android:focusable="false"
+            android:hint="0 Kg"
+            android:padding="8dp" />
+
     </LinearLayout>
 
+    <!-- Bottom Navbar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_nav_home"
+        android:layout_gravity="bottom"
+        android:layout_weight="@integer/material_motion_duration_long_1"
+        app:menu="@menu/bottom_navigation_menu"
+        android:background="@drawable/bg_navbar"
+        app:itemIconTint="@color/selector_nav_icon"
+        app:itemTextColor="@color/selector_nav_text"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

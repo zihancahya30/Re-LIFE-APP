@@ -10,6 +10,8 @@ class TipsNonDaurCustomer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.customer_tips_non_daur_ulang)
 
+        supportActionBar?.hide()
+
         // Menghubungkan tombol back dengan aksi kembali ke halaman sebelumnya
         val backButton = findViewById<View>(R.id.back_tips)
         backButton.setOnClickListener {

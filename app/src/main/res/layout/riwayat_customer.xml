@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/btn_back"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Riwayat"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black" />
     </LinearLayout>
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Keterangan Petugas"
+            android:text="Nama Petugas:"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -66,7 +66,23 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_text_field"
             android:padding="12dp"
-            android:text="Nama: \nNomor Telepon:"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Nomor Telepon Petugas:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_text_field"
+            android:padding="12dp"
             android:textColor="@color/black"
             android:textSize="14sp" />
 
@@ -104,7 +120,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_text_field"
             android:padding="12dp"
-            android:text="Sampah telah Diambil"
             android:textColor="@color/black"
             android:textSize="14sp" />
 
@@ -113,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Informasi"
+            android:text="Berat Sampah Daur Ulang:"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -123,9 +138,26 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_text_field"
             android:padding="12dp"
-            android:text="Berat Sampah Non-Daur Ulang: \nBerat Sampah Daur Ulang: \nHarga Sampah Daur Ulang: "
             android:textColor="@color/black"
             android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Berat Sampah Non Daur Ulang:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_text_field"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
 
         <!-- Hapus Riwayat -->
         <Button

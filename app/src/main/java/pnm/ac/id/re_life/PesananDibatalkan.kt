@@ -12,6 +12,8 @@ class PesananDibatalkan : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pesanan_dibatalkan) // Pastikan nama file XML sesuai
 
+        supportActionBar?.hide()
+
         // Tombol Back
         val btnBack: ImageView = findViewById(R.id.btn_back)
         btnBack.setOnClickListener {
