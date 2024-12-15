@@ -34,149 +34,149 @@
 
     <!-- Content -->
     <LinearLayout
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/bg_detail"
-        android:padding="16dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
         android:layout_gravity="center"
-        android:clipToPadding="false">
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_detail"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <!-- Nama Petugas -->
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Nama Petugas"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/namaPetugas"
-            android:textStyle="italic"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/rounded_border"
-            android:textColor="@color/black"
-            android:gravity="center"
+            android:clickable="false"
             android:focusable="false"
-            android:clickable="false"/>
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="italic" />
 
         <!-- Alamat Lengkap -->
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
             android:text="Alamat Lengkap"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:paddingTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvAlamatLengkap"
-            android:textStyle="italic"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/rounded_border"
-            android:textColor="@color/black"
-            android:gravity="center"
+            android:clickable="false"
             android:focusable="false"
-            android:clickable="false"/>
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="italic" />
 
         <!-- Detail Alamat -->
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
             android:text="Detail Alamat"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:paddingTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvDetailAlamat"
-            android:textStyle="italic"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="110dp"
             android:background="@drawable/rounded_border"
-            android:textColor="@color/black"
-            android:gravity="center"
+            android:clickable="false"
             android:focusable="false"
-            android:clickable="false"/>
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="italic" />
 
         <!-- Nama Lengkap -->
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
             android:text="Nama Lengkap"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:paddingTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvNamaLengkap"
-            android:textStyle="italic"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/rounded_border"
-            android:textColor="@color/black"
-            android:gravity="center"
+            android:clickable="false"
             android:focusable="false"
-            android:clickable="false"/>
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="italic" />
 
         <!-- Nomor Telepon -->
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
             android:text="Nomor Telepon"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:paddingTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvNomorTelepon"
-            android:textStyle="italic"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/rounded_border"
-            android:textColor="@color/black"
-            android:gravity="center"
+            android:clickable="false"
             android:focusable="false"
-            android:clickable="false"/>
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="italic" />
 
         <!-- Status Pengambilan -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status Pengambilan:"
-            android:textSize="16sp"
-            android:textColor="@color/white"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="Status Pengambilan:"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_status_pengambilan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_text_field"
-            android:padding="16dp"/>
+            android:padding="16dp" />
 
         <!-- Button Batal -->
         <Button
             android:id="@+id/btn_batalkan"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_red_button"
             android:padding="16dp"
             android:text="Batalkan"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:textSize="16sp"
-            android:layout_gravity="center" />
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>
