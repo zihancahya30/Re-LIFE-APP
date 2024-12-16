@@ -130,7 +130,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom_nav_profil"
+        android:id="@+id/bottom_nav_profil_customer"
         android:layout_gravity="bottom"
         android:layout_weight="@integer/material_motion_duration_long_1"
         app:menu="@menu/bottom_navigation_menu_customer"

@@ -36,10 +36,8 @@
         <activity android:name=".LoginService"/>
 
         <!-- service -->
-        <activity
-            android:name=".HomeService"
-            android:theme="@style/Theme.AppCompat.Light">
-        </activity>
+        <activity android:name=".HomeService"
+            android:theme="@style/Theme.AppCompat.Light"/>
         <activity
             android:name=".PengelolaanService"
             android:theme="@style/Theme.AppCompat.Light"/>

@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -21,6 +22,35 @@ class ActivityService : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_service)
+
+        // Menghapus ActionBar
+        supportActionBar?.hide()
+
+        // Menambahkan fungsi untuk BottomNavigationView
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_aktivitas_service)
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // Pindah ke halaman Home
+                    val intent = Intent(this, HomeService::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_activity -> {
+                    true
+                }
+                R.id.nav_profile -> {
+                    // Pindah ke halaman Aktivitas
+                    val intent = Intent(this, ProfileService::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
+
+        // Untuk memastikan item navbar yang aktif sesuai halaman saat ini
+        bottomNav.selectedItemId = R.id.nav_activity
 
         // Inisialisasi Firebase
         auth = FirebaseAuth.getInstance()

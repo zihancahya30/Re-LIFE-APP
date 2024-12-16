@@ -12,6 +12,9 @@ class PengelolaanService : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pengelolaan_service)
 
+        // Menghapus ActionBar
+        supportActionBar?.hide()
+
 //        val toolbar: Toolbar = findViewById(R.id.toolbar)
 //        setSupportActionBar(toolbar)
 

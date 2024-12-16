@@ -237,13 +237,15 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom_nav_home_service"
             android:layout_gravity="bottom"
-            app:itemIconTint="@android:color/black"
-            app:itemTextColor="@android:color/black"
-            app:menu="@menu/bottom_navigation_menu_customer" />
+            android:layout_weight="1"
+            android:background="@drawable/bg_navbar"
+            app:menu="@menu/bottom_navigation_menu_service"
+            app:itemIconTint="@color/selector_nav_icon"
+            app:itemTextColor="@color/selector_nav_text" />
     </FrameLayout>
 
 </LinearLayout>
