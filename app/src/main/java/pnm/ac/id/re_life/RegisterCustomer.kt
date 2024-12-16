@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +19,7 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
     private lateinit var etPasswd: EditText
     private lateinit var etKonfPass: EditText
     private lateinit var btnRegister: Button
+    private lateinit var backLogin: ImageView
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,18 +35,28 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
         etPasswd = findViewById(R.id.et_passwd)
         etKonfPass = findViewById(R.id.et_konfpass)
         btnRegister = findViewById(R.id.btnRegister)
+        backLogin = findViewById(R.id.back_login)
 
+        // Set listener untuk tombol
         btnRegister.setOnClickListener(this)
+        backLogin.setOnClickListener {
+            // Navigasi kembali ke halaman login
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {
-        registerUser()
+        if (v?.id == R.id.btnRegister) {
+            registerUser()
+        }
     }
 
     private fun registerUser() {
         val name = etNama.text.toString().trim()
         val nomorHp = etNomor.text.toString().trim()
-        val email = etEmail.text.toString().trim().lowercase() // Normalisasi email ke huruf kecil
+        val email = etEmail.text.toString().trim().lowercase()
         val password = etPasswd.text.toString().trim()
         val konfPass = etKonfPass.text.toString().trim()
 
@@ -61,8 +73,16 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
             etEmail.error = "Belum mengisi email kamu"
             return
         }
+        if (!email.endsWith("@gmail.com")) {
+            etEmail.error = "Email harus menggunakan @gmail.com"
+            return
+        }
         if (password.isEmpty()) {
             etPasswd.error = "Belum mengisi password kamu"
+            return
+        }
+        if (!isPasswordValid(password)) {
+            etPasswd.error = "Password harus mengandung minimal 1 huruf besar dan 1 angka"
             return
         }
         if (konfPass.isEmpty()) {
@@ -113,5 +133,12 @@ class RegisterCustomer : ComponentActivity(), View.OnClickListener {
         } else {
             Toast.makeText(this, "User ID tidak ditemukan, data tidak dapat disimpan", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        // Cek apakah password mengandung minimal satu huruf besar dan satu angka
+        val containsUpperCase = password.any { it.isUpperCase() }
+        val containsDigit = password.any { it.isDigit() }
+        return containsUpperCase && containsDigit
     }
 }

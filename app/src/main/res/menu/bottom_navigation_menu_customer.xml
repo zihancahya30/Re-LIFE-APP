@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Halaman Beranda -->
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Beranda" />
+
+    <!-- Halaman RE-LIFE (Pesanan) -->
+    <item
+        android:id="@+id/nav_relife"
+        android:icon="@drawable/baseline_delete_sweep_24"
+        android:title="RE-LIFE" />
+
+    <!-- Halaman Aktivitas -->
+    <item
+        android:id="@+id/nav_activity"
+        android:icon="@drawable/baseline_calendar_today_24"
+        android:title="Aktivitas" />
+
+    <!-- Halaman Profil -->
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Profil" />
+</menu>

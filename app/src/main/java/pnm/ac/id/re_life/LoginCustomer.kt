@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -21,14 +22,23 @@ class LoginCustomer : ComponentActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_customer)
 
+        // Inisialisasi elemen UI
         etEmail = findViewById(R.id.et_email)
         etPasswd = findViewById(R.id.et_passwd)
         btnLogin = findViewById(R.id.btnLogin)
+        val backLogin: ImageView = findViewById(R.id.back_login)
 
         // Inisialisasi FirebaseAuth
         firebaseAuth = FirebaseAuth.getInstance()
 
+        // Set listener untuk tombol login dan back
         btnLogin.setOnClickListener(this)
+        backLogin.setOnClickListener {
+            // Navigasi kembali ke halaman register
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -42,8 +52,16 @@ class LoginCustomer : ComponentActivity(), View.OnClickListener {
                     etEmail.error = "Email tidak boleh kosong"
                     return
                 }
+                if (!email.endsWith("@gmail.com")) {
+                    etEmail.error = "Email harus menggunakan @gmail.com"
+                    return
+                }
                 if (password.isEmpty()) {
                     etPasswd.error = "Password tidak boleh kosong"
+                    return
+                }
+                if (!isPasswordValid(password)) {
+                    etPasswd.error = "Password harus mengandung minimal 1 huruf besar dan 1 angka"
                     return
                 }
 
@@ -54,7 +72,7 @@ class LoginCustomer : ComponentActivity(), View.OnClickListener {
                             // Login berhasil
                             Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, HomeCustomer::class.java)
-                            Log.d("LoginService", "Berhasil login, mengarahkan ke HomeService")
+                            Log.d("LoginCustomer", "Berhasil login, mengarahkan ke HomeCustomer")
                             startActivity(intent)
                             finish()
                         } else {
@@ -64,5 +82,12 @@ class LoginCustomer : ComponentActivity(), View.OnClickListener {
                     }
             }
         }
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        // Cek apakah password mengandung minimal satu huruf besar dan satu angka
+        val containsUpperCase = password.any { it.isUpperCase() }
+        val containsDigit = password.any { it.isDigit() }
+        return containsUpperCase && containsDigit
     }
 }

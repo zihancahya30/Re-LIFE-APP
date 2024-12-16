@@ -243,7 +243,7 @@
             android:layout_gravity="bottom"
             app:itemIconTint="@android:color/black"
             app:itemTextColor="@android:color/black"
-            app:menu="@menu/bottom_navigation_menu" />
+            app:menu="@menu/bottom_navigation_menu_customer" />
     </FrameLayout>
 
 </LinearLayout>

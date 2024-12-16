@@ -21,6 +21,8 @@
     <color name="main_background">#F3F3F3</color>
     <color name="secondary">#C7E2E4</color>
     <color name="denybutton">#B3261E</color>
+    <color name="active">#FFFFFF</color>
+    <color name="inactive">#1E1E1E</color>
     <color name="bottom_nav_background">#FFFFFF</color>
     <color name="bottom_nav_icon_tint">#000000</color>
     <color name="bottom_nav_icon_tint_active">#0F4D46</color>
