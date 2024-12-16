@@ -37,7 +37,6 @@ class ProfilCustomer : AppCompatActivity() {
         val btnEditProfil = findViewById<Button>(R.id.btn_edit_profil)
         val btnLogout = findViewById<TextView>(R.id.btn_logout)
         val btnTogglePassword = findViewById<ImageView>(R.id.iv_toggle_password)
-        val backButton = findViewById<ImageView>(R.id.back_tips)
 
         // Awalnya EditText tidak bisa diedit
         etNamaLengkap.isEnabled = false
@@ -75,7 +74,7 @@ class ProfilCustomer : AppCompatActivity() {
                 etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 btnTogglePassword.setImageResource(R.drawable.visibility_off_24px) // Icon mata tertutup
             }
-            etPassword.setSelection(etPassword.text.length) // Memastikan kursor tetap di
+            etPassword.setSelection(etPassword.text.length) // Memastikan kursor tetap di akhir
         }
 
         // Tombol Edit/Simpan Profil
@@ -122,11 +121,6 @@ class ProfilCustomer : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish() // Menutup ProfilCustomer agar tidak bisa kembali ke halaman ini
-        }
-
-        // Tombol Kembali ke Halaman Home
-        backButton.setOnClickListener {
-            onBackPressed() // Kembali ke halaman sebelumnya
         }
 
         // Menambahkan fungsi untuk BottomNavigationView
