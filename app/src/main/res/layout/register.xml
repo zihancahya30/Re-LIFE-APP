@@ -17,6 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_regular"
         android:justificationMode="inter_word"
         android:text="Mulai langkah kecil untuk lingkungan yang lebih baik! Daftar sekarang dan bergabunglah dalam gerakan pengelolaan sampah bersama RE-LIFE" />
 
@@ -43,6 +45,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
         android:justificationMode="inter_word"
         android:text="Sudah punya akun? Masuk dan lanjutkan perjalananmu untuk membuat Indonesia lebih bersih bersama RE-LIFE!" />
 

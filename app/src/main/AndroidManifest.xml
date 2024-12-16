@@ -34,15 +34,34 @@
             android:name=".RegisterService"/>
         <activity android:name=".LoginCustomer"/>
         <activity android:name=".LoginService"/>
+
+        <!-- service -->
         <activity
             android:name=".HomeService"
             android:theme="@style/Theme.AppCompat.Light">
         </activity>
+        <activity
+            android:name=".PengelolaanService"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".ActivityService"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".ActivityPesanan"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".FinishService"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".ProfileService"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".EditProfileService"
+            android:theme="@style/Theme.AppCompat.Light"/>
+
+        <!-- customer -->
         <activity android:name=".HomeCustomer"
             android:theme="@style/Theme.AppCompat.Light"/>
-        <activity android:name=".PengelolaanService"/>
-        <activity android:name=".ActivityService"/>
-        <activity android:name=".ProfileService"/>
         <activity
             android:name=".ProfilCustomer"
             android:exported="true"

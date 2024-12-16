@@ -156,7 +156,7 @@
             android:id="@+id/bottom_nav_aktivitas"
             android:layout_gravity="bottom"
             android:layout_weight="@integer/material_motion_duration_long_1"
-            app:menu="@menu/bottom_navigation_menu"
+            app:menu="@menu/bottom_navigation_menu_customer"
             android:background="@drawable/bg_navbar"
             app:itemIconTint="@color/selector_nav_icon"
             app:itemTextColor="@color/selector_nav_text"/>
