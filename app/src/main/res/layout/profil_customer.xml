@@ -19,7 +19,7 @@
             android:text="Profil"
             android:paddingLeft="20dp"
             android:textSize="30sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold"
             android:layout_gravity="start"
             android:textColor="#000000" />
     </LinearLayout>
@@ -50,6 +50,7 @@
             android:id="@+id/et_nama_lengkap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
             android:hint="Nama Lengkap"
             android:background="@drawable/bg_text_field"
             android:padding="12dp"
@@ -59,6 +60,7 @@
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
             android:hint="Email"
             android:background="@drawable/bg_text_field"
             android:padding="12dp"
@@ -70,6 +72,7 @@
             android:id="@+id/et_nomor_telepon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
             android:layout_marginBottom="12dp"
             android:background="@drawable/bg_text_field"
             android:hint="Nomor Telepon"
@@ -84,6 +87,7 @@
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
                 android:background="@drawable/bg_text_field"
                 android:hint="Password"
                 android:padding="12dp"
@@ -105,11 +109,12 @@
             android:id="@+id/btn_edit_profil"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
             android:background="@drawable/rounded_button"
             android:text="Edit Profil"
             android:textColor="#FFFFFF"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="77dp"
             android:layout_marginBottom="12dp" />
 
         <!-- Tombol Logout -->
@@ -117,6 +122,7 @@
             android:id="@+id/btn_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
             android:text="Logout"
             android:textColor="@color/denybutton"
             android:layout_gravity="center_horizontal"
