@@ -89,9 +89,9 @@ class BuatPesanan : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
-                R.id.nav_relife -> {
-                    true // Tidak perlu aksi jika sudah di halaman RE-Life
-                }
+//                R.id.nav_relife -> {
+//                    true // Tidak perlu aksi jika sudah di halaman RE-Life
+//                }
                 R.id.nav_activity -> {
                     // Pindah ke halaman Aktivitas
                     val intent = Intent(this, AktivitasCustomer::class.java)
@@ -108,7 +108,7 @@ class BuatPesanan : AppCompatActivity() {
             }
         }
 
-        bottomNav.selectedItemId = R.id.nav_relife
+//        bottomNav.selectedItemId = R.id.nav_relife
 
         // Tombol Back
         btnBack.setOnClickListener {

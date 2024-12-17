@@ -38,7 +38,7 @@ class ActivityPesanan : AppCompatActivity() {
         btnPesanan.setOnClickListener {
             calculateTotal() // Menghitung total harga
             saveOrderToFirebase() // Menyimpan pesanan ke Firebase
-            updateOrderStatus() // Mengubah status pesanan menjadi "Sudah diambil"
+            updateOrderStatus() // Mengubah status pesanan menjadi "Selesai"
             navigateToFinishService() // Navigasi ke halaman selesai
         }
     }
@@ -99,10 +99,10 @@ class ActivityPesanan : AppCompatActivity() {
             if (snapshot.children.count() > 0) {
                 val lastOrderKey = snapshot.children.first().key
                 if (lastOrderKey != null) {
-                    ordersRef.child(lastOrderKey).child("status").setValue("Sudah diambil")
+                    ordersRef.child(lastOrderKey).child("status").setValue("Selesai")
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                Toast.makeText(this, "Status pesanan diperbarui menjadi 'Sudah diambil'", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Status pesanan diperbarui menjadi 'Selesai'", Toast.LENGTH_SHORT).show()
                             } else {
                                 Toast.makeText(this, "Gagal memperbarui status. Coba lagi!", Toast.LENGTH_SHORT).show()
                             }

@@ -1,164 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<!-- activity_aktivitas.xml -->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:id="@+id/layout_container">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <!-- Toolbar -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="RE-LIFE"
-            android:textSize="30dp"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <!-- Sedang Berlangsung Section -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="8dp"
-        android:text="Sedang Berlangsung"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <!-- Sedang Berlangsung Card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/pesanan_card_secondary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="@color/secondary"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="4dp">
-
-        <RelativeLayout
+        <!-- Header Section -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_margin="10dp"
-            app:cornerRadius="30dp"
-            android:background="@color/text_field"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/bg_header_tips"
+            android:padding="16dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="RE-LIFE"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="24sp"
+                android:textColor="@android:color/white"/>
 
-                <TextView
-                    android:id="@+id/nama_customer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="8dp"
-                    android:text="Nama Customer"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Kamu bisa melihat semua aktivitas yang sedang kamu lakukan ataupun yang sudah kamu lakukan disini!!! teruskan langkah mu bersama kami"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"/>
+        </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="8dp">
-                    <ImageView
-                        android:id="@+id/ic_maps"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:contentDescription="Icon Maps"
-                        android:src="@drawable/ic_maps"
-                        android:layout_marginStart="8dp" />
+        <!-- Main Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-                    <TextView
-                        android:id="@+id/alamat_pesanan_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Jl. Merdeka No. 123, Jakarta Selatan"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-                </LinearLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Parent Layout -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="30dp">
-                    <TextView
-                        android:id="@+id/telepon_customer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:text="08123456789"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-                </LinearLayout>
+                    android:padding="16dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
+                    <!-- Sedang Berlangsung Section -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="200dp"
-                        android:text="Ambil Pesanan"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Sedang Berlangsung"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
-                    <ImageView
-                        android:id="@+id/iv_back"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:contentDescription="Next Icon"
-                        android:padding="8dp"
-                        android:src="@drawable/ic_next_arrow" />
-                </LinearLayout>
-            </LinearLayout>
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_sedang_berlangsung"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-    <!-- Riwayat Section -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="8dp"
-        android:text="Riwayat"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+                    <!-- Text jika tidak ada pesanan -->
+                    <TextView
+                        android:id="@+id/text_no_sedang_berlangsung"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Kamu belum memiliki pesanan"
+                        android:textSize="12sp"
+                        android:textStyle="italic"
+                        android:visibility="gone" />
+
+                    <!-- Riwayat Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Riwayat"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_riwayat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!-- Text jika tidak ada riwayat -->
+                    <TextView
+                        android:id="@+id/text_no_riwayat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Kamu belum memiliki riwayat"
+                        android:textSize="12sp"
+                        android:textStyle="italic"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <!-- Bottom Navbar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom_nav_aktivitas_service"
+        android:id="@+id/bottom_nav_aktivitas"
         android:layout_gravity="bottom"
-        android:layout_weight="@integer/material_motion_duration_long_1"
-        app:menu="@menu/bottom_navigation_menu_service"
+        app:menu="@menu/bottom_navigation_menu_customer"
         android:background="@drawable/bg_navbar"
         app:itemIconTint="@color/selector_nav_icon"
         app:itemTextColor="@color/selector_nav_text"/>
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

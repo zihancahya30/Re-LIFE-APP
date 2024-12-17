@@ -2,9 +2,11 @@ package pnm.ac.id.re_life
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -17,6 +19,7 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
     private lateinit var etPasswd: EditText
     private lateinit var etKonfPass: EditText
     private lateinit var btnRegister: Button
+    private lateinit var backLogin: ImageView
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,16 +35,22 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
         etPasswd = findViewById(R.id.et_passwd)
         etKonfPass = findViewById(R.id.et_konfpass)
         btnRegister = findViewById(R.id.btnRegister)
-        btnRegister.setOnClickListener(this)
+        backLogin = findViewById(R.id.back_login)
 
-        val ivBack: ImageView = findViewById(R.id.back_login)
-        ivBack.setOnClickListener {
-            onBackPressed()
+        // Set listener untuk tombol
+        btnRegister.setOnClickListener(this)
+        backLogin.setOnClickListener {
+            // Navigasi kembali ke halaman login
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
     override fun onClick(v: View?) {
-        registerUser()
+        if (v?.id == R.id.btnRegister) {
+            registerUser()
+        }
     }
 
     private fun registerUser() {
@@ -53,15 +62,15 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
 
         // Validasi input
         if (name.isEmpty()) {
-            etNama.error = "Nama wajib diisi"
+            etNama.error = "Belum mengisi nama kamu"
             return
         }
         if (nomorHp.isEmpty()) {
-            etNomor.error = "Nomor HP wajib diisi"
+            etNomor.error = "Belum mengisi nomor HP kamu"
             return
         }
         if (email.isEmpty()) {
-            etEmail.error = "Email wajib diisi"
+            etEmail.error = "Belum mengisi email kamu"
             return
         }
         if (!email.endsWith("@gmail.com")) {
@@ -69,19 +78,15 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
             return
         }
         if (password.isEmpty()) {
-            etPasswd.error = "Password wajib diisi"
+            etPasswd.error = "Belum mengisi password kamu"
             return
         }
-        if (password.length < 8) {
-            etPasswd.error = "Password minimal 8 karakter"
-            return
-        }
-        if (!isValidPassword(password)) {
-            etPasswd.error = "Password harus mengandung huruf besar dan angka"
+        if (!isPasswordValid(password)) {
+            etPasswd.error = "Password harus mengandung minimal 1 huruf besar dan 1 angka"
             return
         }
         if (konfPass.isEmpty()) {
-            etKonfPass.error = "Konfirmasi password wajib diisi"
+            etKonfPass.error = "Belum konfirmasi password kamu"
             return
         }
         if (password != konfPass) {
@@ -89,21 +94,17 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
             return
         }
 
-        // Registrasi ke Firebase Authentication
+        // Mendaftarkan user ke Firebase Authentication
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    // Jika registrasi berhasil, simpan data tambahan ke Firebase Realtime Database
                     saveAdditionalData(name, nomorHp, email)
                 } else {
+                    // Tampilkan pesan error jika registrasi gagal
                     Toast.makeText(this, "Registrasi gagal: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
-    }
-
-    private fun isValidPassword(password: String): Boolean {
-        val hasUppercase = password.any { it.isUpperCase() }
-        val hasDigit = password.any { it.isDigit() }
-        return hasUppercase && hasDigit
     }
 
     private fun saveAdditionalData(name: String, nomorHp: String, email: String) {
@@ -121,7 +122,7 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
             ref.child(userId).setValue(serviceData)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, HomeService::class.java)
                         startActivity(intent)
                         finish()
@@ -130,7 +131,14 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
                     }
                 }
         } else {
-            Toast.makeText(this, "User ID tidak ditemukan", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "User ID tidak ditemukan, data tidak dapat disimpan", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        // Cek apakah password mengandung minimal satu huruf besar dan satu angka
+        val containsUpperCase = password.any { it.isUpperCase() }
+        val containsDigit = password.any { it.isDigit() }
+        return containsUpperCase && containsDigit
     }
 }

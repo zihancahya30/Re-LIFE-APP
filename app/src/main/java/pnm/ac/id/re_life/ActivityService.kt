@@ -2,160 +2,113 @@ package pnm.ac.id.re_life
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import pnm.ac.id.re_life.adapter.SedangBerlangsungAdapter
+import pnm.ac.id.re_life.model.Pesanan
 
 class ActivityService : AppCompatActivity() {
 
+    private lateinit var sedangBerlangsungAdapter: SedangBerlangsungAdapter
+    private lateinit var riwayatAdapter: SedangBerlangsungAdapter
+
+    private lateinit var recyclerSedangBerlangsung: RecyclerView
+    private lateinit var recyclerRiwayat: RecyclerView
+    private lateinit var noSedangBerlangsung: TextView
+    private lateinit var noRiwayat: TextView
+
     private lateinit var database: DatabaseReference
-    private lateinit var auth: FirebaseAuth
-    private lateinit var layoutContainer: LinearLayout
+    private val pesananListSedang = mutableListOf<Pesanan>()
+    private val pesananListRiwayat = mutableListOf<Pesanan>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Mengatur agar tidak ada Action Bar
+        supportActionBar?.hide()
         setContentView(R.layout.activity_service)
 
-        // Menghapus ActionBar
-        supportActionBar?.hide()
+        // Inisialisasi RecyclerView dan TextView
+        recyclerSedangBerlangsung = findViewById(R.id.recycler_sedang_berlangsung)
+        recyclerRiwayat = findViewById(R.id.recycler_riwayat)
+        noSedangBerlangsung = findViewById(R.id.text_no_sedang_berlangsung)
+        noRiwayat = findViewById(R.id.text_no_riwayat)
+
+        // Mengatur layout manager untuk RecyclerView
+        recyclerSedangBerlangsung.layoutManager = LinearLayoutManager(this)
+        recyclerRiwayat.layoutManager = LinearLayoutManager(this)
+
+        // Inisialisasi Firebase Database
+        database = FirebaseDatabase.getInstance().getReference("Orders")
+
+        // Fungsi untuk mengambil data pesanan
+        fetchPesanan()
 
         // Menambahkan fungsi untuk BottomNavigationView
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_aktivitas_service)
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_aktivitas)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    // Pindah ke halaman Home
+                    // Pindah ke halaman HomeCustomer dan menutup AktivitasService
                     val intent = Intent(this, HomeService::class.java)
                     startActivity(intent)
+                    finish() // Menutup aktivitas AktivitasService
                     true
                 }
                 R.id.nav_activity -> {
+                    // Tetap di halaman AktivitasService
                     true
                 }
                 R.id.nav_profile -> {
-                    // Pindah ke halaman Aktivitas
+                    // Pindah ke halaman ProfilCustomer dan menutup AktivitasService
                     val intent = Intent(this, ProfileService::class.java)
                     startActivity(intent)
+                    finish() // Menutup aktivitas AktivitasService
                     true
                 }
                 else -> false
             }
         }
 
-        // Untuk memastikan item navbar yang aktif sesuai halaman saat ini
+        // Menetapkan item yang aktif di BottomNavigationView
         bottomNav.selectedItemId = R.id.nav_activity
-
-        // Inisialisasi Firebase
-        auth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance().reference.child("pesanan")
-
-        // Inisialisasi LinearLayout dari XML
-        layoutContainer = findViewById(R.id.layout_container)
-
-        // Load data pesanan dari Firebase
-        loadPesanan()
-        loadPesananData()
     }
 
-    private fun loadPesanan() {
-        val currentUser = auth.currentUser
-
-        if (currentUser != null) {
-            val userId = currentUser.uid
-
-            database.child(userId).addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    // Hapus semua view sebelumnya untuk menghindari duplikasi
-                    layoutContainer.removeAllViews()
-
-                    for (childSnapshot in snapshot.children) {
-                        val pesananId = childSnapshot.key ?: continue
-                        val berat = childSnapshot.child("berat").getValue(String::class.java) ?: "0"
-
-                        // Buat LinearLayout baru secara dinamis
-                        val pesananLayout = LinearLayout(this@ActivityService).apply {
-                            orientation = LinearLayout.VERTICAL
-                            setPadding(16, 16, 16, 16)
-                            setBackgroundResource(R.drawable.rounded_corner_background)
-                            layoutParams = LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.MATCH_PARENT,
-                                LinearLayout.LayoutParams.WRAP_CONTENT
-                            ).apply {
-                                setMargins(0, 16, 0, 16)
-                            }
-                        }
-
-                        // Tambahkan TextView untuk informasi pesanan
-                        val beratTextView = TextView(this@ActivityService).apply {
-                            text = "Berat Sampah: $berat kg"
-                            textSize = 16f
-                            setTextColor(resources.getColor(R.color.black, theme))
-                        }
-
-                        // Tambahkan Button untuk navigasi ke RiwayatService
-                        val detailButton = Button(this@ActivityService).apply {
-                            text = "Lihat Detail"
-                            setOnClickListener {
-                                val intent = Intent(this@ActivityService, RiwayatService::class.java)
-                                intent.putExtra("pesananId", pesananId)
-                                startActivity(intent)
-                            }
-                        }
-
-                        // Tambahkan TextView dan Button ke dalam pesananLayout
-                        pesananLayout.addView(beratTextView)
-                        pesananLayout.addView(detailButton)
-
-                        // Tambahkan pesananLayout ke layoutContainer
-                        layoutContainer.addView(pesananLayout)
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    // Tangani error Firebase
-                    error.toException().printStackTrace()
-                }
-            })
-        }
-    }
-
-    private fun loadPesananData() {
-        val namaCustomerTextView: TextView = findViewById(R.id.nama_customer)
-        val alamatPesananTextView: TextView = findViewById(R.id.alamat_pesanan_text)
-        val teleponPesananTextView: TextView = findViewById(R.id.telepon_customer)
-
-        database.child("pesanan").limitToLast(1).addListenerForSingleValueEvent(object :
-            ValueEventListener {
+    private fun fetchPesanan() {
+        database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                for (pesananSnapshot in snapshot.children) {
-                    val namaCustomer = pesananSnapshot.child("nama").getValue(String::class.java) ?: "-"
-                    val alamatPesanan = pesananSnapshot.child("alamat").getValue(String::class.java) ?: "-"
-                    val teleponPesanan = pesananSnapshot.child("telepon").getValue(String::class.java) ?: "-"
+                pesananListSedang.clear()
+                pesananListRiwayat.clear()
 
-                    namaCustomerTextView.text = namaCustomer
-                    alamatPesananTextView.text = alamatPesanan
-                    teleponPesananTextView.text = teleponPesanan
-
-                    // Navigate to PesananMasuk.kt on arrow click
-                    findViewById<ImageView>(R.id.iv_back).setOnClickListener {
-                        val intent = Intent(this@ActivityService, PesananMasuk::class.java)
-                        intent.putExtra("nama", namaCustomer)
-                        intent.putExtra("alamat", alamatPesanan)
-                        intent.putExtra("telepon", teleponPesanan)
-                        startActivity(intent)
+                for (data in snapshot.children) {
+                    val pesanan = data.getValue(Pesanan::class.java)
+                    if (pesanan != null) {
+                        if (pesanan.status == "Belum Diambil") {
+                            pesananListSedang.add(pesanan)
+                        } else if (pesanan.status == "Sudah Diambil") {
+                            pesananListRiwayat.add(pesanan)
+                        }
                     }
                 }
+
+                // Update adapters
+                sedangBerlangsungAdapter = SedangBerlangsungAdapter(pesananListSedang)
+                riwayatAdapter = SedangBerlangsungAdapter(pesananListRiwayat)
+                recyclerSedangBerlangsung.adapter = sedangBerlangsungAdapter
+                recyclerRiwayat.adapter = riwayatAdapter
+
+                // Menangani tampilan jika tidak ada data
+                noSedangBerlangsung.visibility = if (pesananListSedang.isEmpty()) View.VISIBLE else View.GONE
+                noRiwayat.visibility = if (pesananListRiwayat.isEmpty()) View.VISIBLE else View.GONE
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle error
+                Toast.makeText(this@ActivityService, "Gagal mengambil data", Toast.LENGTH_SHORT).show()
             }
         })
     }

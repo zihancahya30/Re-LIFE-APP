@@ -34,7 +34,7 @@ class LoginService : ComponentActivity(), View.OnClickListener {
         // Set listener untuk tombol login dan back
         btnLogin.setOnClickListener(this)
         backLogin.setOnClickListener {
-            // Navigasi kembali ke halaman register service
+            // Navigasi kembali ke halaman register
             val intent = Intent(this, Register::class.java)
             startActivity(intent)
             finish()
@@ -72,7 +72,7 @@ class LoginService : ComponentActivity(), View.OnClickListener {
                             // Login berhasil
                             Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, HomeService::class.java)
-                            Log.d("LoginService", "Berhasil login, mengarahkan ke HomeService")
+                            Log.d("LoginService", "Berhasil login, mengarahkan ke HomeCustomer")
                             startActivity(intent)
                             finish()
                         } else {
