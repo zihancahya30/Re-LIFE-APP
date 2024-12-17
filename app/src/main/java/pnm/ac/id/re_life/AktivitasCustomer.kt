@@ -103,9 +103,20 @@ class AktivitasCustomer : AppCompatActivity() {
                     }
                 }
 
-                // Update adapters
-                sedangBerlangsungAdapter = SedangBerlangsungAdapter(pesananListSedang)
-                riwayatAdapter = SedangBerlangsungAdapter(pesananListRiwayat)
+                // Adapter untuk Sedang Berlangsung
+                sedangBerlangsungAdapter = SedangBerlangsungAdapter(pesananListSedang) { pesanan ->
+                    val intent = Intent(this@AktivitasCustomer, SedangBerlangsungCustomer::class.java)
+                    intent.putExtra("PESANAN_ID", pesanan.pesananId)
+                    startActivity(intent)
+                }
+
+                // Adapter untuk Riwayat
+                riwayatAdapter = SedangBerlangsungAdapter(pesananListRiwayat) { pesanan ->
+                    val intent = Intent(this@AktivitasCustomer, RiwayatCustomer::class.java)
+                    intent.putExtra("PESANAN_ID", pesanan.pesananId) // Menambahkan ID pesanan
+                    startActivity(intent)
+                }
+
                 recyclerSedangBerlangsung.adapter = sedangBerlangsungAdapter
                 recyclerRiwayat.adapter = riwayatAdapter
 

@@ -83,5 +83,8 @@
         <activity
             android:name=".AktivitasCustomer"
             android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".RiwayatCustomer"
+            android:theme="@style/Theme.AppCompat.Light" />
     </application>
 </manifest>
