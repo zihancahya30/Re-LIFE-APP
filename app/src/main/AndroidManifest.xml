@@ -58,6 +58,12 @@
         <activity
             android:name=".EditProfileService"
             android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".PesananMasuk"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".RiwayatService"
+            android:theme="@style/Theme.AppCompat.Light"/>
 
         <!-- customer -->
         <activity android:name=".HomeCustomer"

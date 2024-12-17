@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Masukkan lokasi Anda saat ini"
                     android:textColorHint="@color/text_field"
-                    android:textColor="@color/text_field"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     android:background="@color/text_field"
                     android:layout_marginTop="8dp"
