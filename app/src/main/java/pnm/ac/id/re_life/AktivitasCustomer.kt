@@ -23,10 +23,10 @@ class AktivitasCustomer : AppCompatActivity() {
                     finish() // Menutup aktivitas AktivitasCustomer
                     true
                 }
-                R.id.nav_relife -> {
-                    // Tidak perlu aksi jika sudah di halaman RE-Life
-                    true
-                }
+//                R.id.nav_relife -> {
+//                    // Tidak perlu aksi jika sudah di halaman RE-Life
+//                    true
+//                }
                 R.id.nav_activity -> {
                     // Pindah ke halaman AktivitasCustomer, tidak perlu menambah aktivitas
                     true

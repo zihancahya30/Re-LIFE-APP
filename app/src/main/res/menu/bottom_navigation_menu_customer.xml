@@ -6,12 +6,6 @@
         android:icon="@drawable/baseline_home_24"
         android:title="Beranda" />
 
-    <!-- Halaman RE-LIFE (Pesanan) -->
-    <item
-        android:id="@+id/nav_relife"
-        android:icon="@drawable/baseline_delete_sweep_24"
-        android:title="RE-LIFE" />
-
     <!-- Halaman Aktivitas -->
     <item
         android:id="@+id/nav_activity"

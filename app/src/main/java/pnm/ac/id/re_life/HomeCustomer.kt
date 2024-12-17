@@ -46,12 +46,12 @@ class HomeCustomer : AppCompatActivity() {
                     // Tetap di halaman Home
                     true
                 }
-                R.id.nav_relife -> {
-                    // Pindah ke halaman RE-Life
-                    val intent = Intent(this, BuatPesanan::class.java)
-                    startActivity(intent)
-                    true
-                }
+//                R.id.nav_relife -> {
+//                    // Pindah ke halaman RE-Life
+//                    val intent = Intent(this, BuatPesanan::class.java)
+//                    startActivity(intent)
+//                    true
+//                }
                 R.id.nav_activity -> {
                     // Pindah ke halaman Aktivitas
                     val intent = Intent(this, AktivitasCustomer::class.java)

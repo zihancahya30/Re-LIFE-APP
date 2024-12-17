@@ -138,12 +138,12 @@ class ProfilCustomer : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
-                R.id.nav_relife -> {
-                    // Pindah ke halaman Buat Pesanan
-                    val intent = Intent(this, BuatPesanan::class.java)
-                    startActivity(intent)
-                    true // Tidak perlu aksi jika sudah di halaman RE-Life
-                }
+//                R.id.nav_relife -> {
+//                    // Pindah ke halaman Buat Pesanan
+//                    val intent = Intent(this, BuatPesanan::class.java)
+//                    startActivity(intent)
+//                    true // Tidak perlu aksi jika sudah di halaman RE-Life
+//                }
                 R.id.nav_activity -> {
                     // Pindah ke halaman Aktivitas
                     val intent = Intent(this, AktivitasCustomer::class.java)
