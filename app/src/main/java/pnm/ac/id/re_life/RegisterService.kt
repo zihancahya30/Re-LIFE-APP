@@ -2,9 +2,12 @@ package pnm.ac.id.re_life
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -18,7 +21,12 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
     private lateinit var etPasswd: EditText
     private lateinit var etKonfPass: EditText
     private lateinit var btnRegister: Button
+    private lateinit var togglePass: TextView
+    private lateinit var toggleConfPass: TextView
     private lateinit var firebaseAuth: FirebaseAuth
+
+    private var isPasswordVisible = false
+    private var isConfPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +41,44 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
         etPasswd = findViewById(R.id.et_passwd)
         etKonfPass = findViewById(R.id.et_konfpass)
         btnRegister = findViewById(R.id.btnRegister)
-
         btnRegister.setOnClickListener(this)
+
+        // Tambahkan tombol LIHAT/SEMBUNYIKAN secara programatis untuk etPasswd
+        togglePass = createToggleTextView(etPasswd)
+        // Tambahkan tombol LIHAT/SEMBUNYIKAN secara programatis untuk etKonfPass
+        toggleConfPass = createToggleTextView(etKonfPass)
+
+        val ivBack: ImageView = findViewById(R.id.iv_back)
+        ivBack.setOnClickListener {
+            // Menavigasi kembali ke halaman sebelumnya
+            onBackPressed()
+        }
     }
 
     override fun onClick(v: View?) {
         registerUser()
+    }
+
+    private fun createToggleTextView(editText: EditText): TextView {
+        val toggleTextView = TextView(this)
+        toggleTextView.text = "LIHAT"
+        toggleTextView.setPadding(20, 20, 20, 20)
+        toggleTextView.textSize = 12f
+        toggleTextView.setOnClickListener {
+            val isCurrentlyVisible = editText.inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            editText.inputType = if (isCurrentlyVisible)
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            else
+                InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            toggleTextView.text = if (isCurrentlyVisible) "LIHAT" else "SEMBUNYIKAN"
+            editText.setSelection(editText.text.length) // Pindahkan kursor ke akhir teks
+        }
+
+        // Tambahkan toggleTextView ke bagian kanan EditText
+        editText.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
+        editText.setPaddingRelative(editText.paddingStart, editText.paddingTop, 160, editText.paddingBottom)
+
+        return toggleTextView
     }
 
     private fun registerUser() {
@@ -61,8 +101,16 @@ class RegisterService : ComponentActivity(), View.OnClickListener {
             etEmail.error = "Belum mengisi email kamu"
             return
         }
+        if (!email.endsWith("@gmail.com")) {
+            etEmail.error = "Email harus menggunakan @gmail.com"
+            return
+        }
         if (password.isEmpty()) {
             etPasswd.error = "Belum mengisi password kamu"
+            return
+        }
+        if (password.length < 6) {
+            etPasswd.error = "Password minimal 6 karakter"
             return
         }
         if (konfPass.isEmpty()) {

@@ -36,23 +36,22 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_pesanan"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="16dp"
         app:cardBackgroundColor="@color/hijau_gelap"
         app:cardCornerRadius="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Status -->
             <TextView
                 android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sedang Berlangsung"
+                android:text="Pesanan Masuk"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
@@ -60,40 +59,98 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="#FFF9C4"
-                android:layout_marginTop="30dp"
+                android:background="@color/text_field"
+                android:layout_marginTop="16dp"
                 android:padding="12dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nama   : Budi Agus Pratomo"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:elevation="4dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_person_24"
+                        android:contentDescription="Person Icon" />
+
+                    <TextView
+                        android:id="@+id/tv_nama_pelanggan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama :"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:elevation="4dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_phone_24"
+                        android:contentDescription="Phone Icon" />
+
+                    <TextView
+                        android:id="@+id/tv_no_telepon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No. Telp :"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
 
                 <TextView
+                    android:id="@+id/tv_lokasi_anda"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No. Telp : 08123456789"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:text="Lokasi Anda:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_lokasi_saat_ini"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan lokasi Anda saat ini"
+                    android:textColorHint="@color/text_field"
+                    android:textColor="@color/text_field"
+                    android:textSize="14sp"
+                    android:background="@color/text_field"
+                    android:layout_marginTop="8dp"
+                    android:padding="10dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/tv_detail_alamat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Detail Alamat:"
+                    android:text="Alamat Tujuan:"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -102,36 +159,51 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="#FFF9C4"
-                    android:padding="12dp">
+                    android:layout_height="50dp"
+                    android:background="@color/text_field"
+                    android:padding="10dp">
 
                     <TextView
+                        android:id="@+id/tv_alamat_tujuan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Jln. Budi Utomo, Putaran Monas Jakarta Barat"
-                        android:textColor="#000000"
+                        android:text=""
+                        android:textColor="@color/black"
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_lihatmap"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#ECFFE6"
+                app:cornerRadius="30dp"
+                android:padding="10dp"
+                android:text="Lihat Peta"
+                android:textAllCaps="false"
+                android:textColor="@color/hijau_gelap" />
+
             <Button
                 android:id="@+id/btnPesanan"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="120dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
-                android:background="@drawable/rounded_button2"
+                android:backgroundTint="@color/hijau_telur"
+                app:cornerRadius="30dp"
                 android:padding="10dp"
                 android:text="Ambil Pesanan"
                 android:textAllCaps="false"
-                android:textColor="@color/hijau_gelap"/>
+                android:textColor="@color/hijau_gelap" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>

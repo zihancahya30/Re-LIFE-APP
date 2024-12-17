@@ -26,7 +26,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aktivitas"
+            android:text="Pesanan"
             android:textSize="20sp"
             android:textColor="#000000"
             android:textStyle="bold"
@@ -36,14 +36,14 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_pesanan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="16dp"
         app:cardBackgroundColor="@color/hijau_gelap"
         app:cardCornerRadius="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,35 +72,6 @@
                     android:layout_marginTop="30dp">
 
                     <TextView
-                        android:id="@+id/tv_alamat_rumah"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Alamat Rumah :"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="#FFF9C4"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Jln. Budi Utomo, Putaran Monas Jakarta Barat"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp">
-
-                    <TextView
                         android:id="@+id/tv_beratnon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -110,11 +81,13 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
+                    android:id="@+id/etBeratNonDaur"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#FFF9C4"
-                    android:hint="" />
+                    android:hint="Masukkan nilai"
+                    android:padding="10dp"
+                    android:background="@color/text_field"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -131,17 +104,19 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
+                    android:id="@+id/etBeratDaur"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#FFF9C4"
-                    android:hint="" />
+                    android:hint="Masukkan nilai"
+                    android:padding="10dp"
+                    android:background="@color/text_field"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp">
-
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
                     <TextView
                         android:id="@+id/tv_transaksi"
                         android:layout_width="wrap_content"
@@ -151,49 +126,40 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
-
+                    android:background="@color/text_field">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tv_total_harga_daur"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="#FFF9C4"
-                            android:padding="12dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Total Harga Sampah Daur Ulang yang dijual :"
-                                android:textColor="#000000"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="30dp"
-                                android:text="Total Harga jasa Pengumpulan Sampah :"
-                                android:textColor="#000000"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="30dp"
-                                android:text="Total Keseluruhan :"
-                                android:textColor="#000000"
-                                android:textSize="14sp" />
-                        </LinearLayout>
-
+                            android:text="Total Harga Sampah Daur Ulang yang dijual :"
+                            android:textSize="16sp"
+                            android:textColor="#000000"
+                            android:layout_marginStart="8dp" />
+                        <TextView
+                            android:id="@+id/tv_harga_jasa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:text="Total Harga jasa Pengumpulan Sampah :"
+                            android:textSize="16sp"
+                            android:textColor="#000000"
+                            android:layout_marginStart="8dp" />
+                        <TextView
+                            android:id="@+id/tv_total_keseluruhan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:text="Total Keseluruhan :"
+                            android:textSize="16sp"
+                            android:textColor="#000000"
+                            android:layout_marginStart="8dp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -201,14 +167,15 @@
                     android:id="@+id/btnPesanan"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="40dp"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/hijau_telur"
                     app:cornerRadius="30dp"
                     android:padding="10dp"
-                    android:text="Ambil Pesanan"
+                    android:text="Ambil"
                     android:textAllCaps="false"
                     android:textColor="@color/hijau_gelap"/>
+
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

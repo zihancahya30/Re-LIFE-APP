@@ -36,7 +36,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_pesanan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="16dp"
         app:cardBackgroundColor="@color/hijau_gelap"
         app:cardCornerRadius="16dp">
@@ -144,6 +144,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/berat_beratnon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Berat Sampah Non-Daur Ulang :"
@@ -151,6 +152,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/berat_beratda"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="30dp"
@@ -159,6 +161,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/hargadaur"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="30dp"
@@ -170,17 +173,6 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/btnSimpan"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_button2"
-                    android:padding="10dp"
-                    android:text="Simpan"
-                    android:textAllCaps="false"
-                    android:textColor="@color/hijau_gelap"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

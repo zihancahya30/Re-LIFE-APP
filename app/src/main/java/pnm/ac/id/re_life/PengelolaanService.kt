@@ -12,8 +12,8 @@ class PengelolaanService : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pengelolaan_service)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+//        val toolbar: Toolbar = findViewById(R.id.toolbar)
+//        setSupportActionBar(toolbar)
 
         val backButton: View = findViewById(R.id.iv_back)
         backButton.setOnClickListener {

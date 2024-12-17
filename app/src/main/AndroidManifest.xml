@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -11,8 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RE_LIFE"
         tools:targetApi="31">
-
-        <!-- Activity Utama -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -20,11 +19,10 @@
             android:theme="@style/Theme.RE_LIFE">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Aktivitas lainnya -->
         <activity android:name=".Register"/>
         <activity
             android:theme="@style/Theme.AppCompat.Light"
@@ -42,29 +40,11 @@
             android:theme="@style/Theme.AppCompat.Light"/>
         <activity android:name=".PengelolaanService"/>
         <activity android:name=".ActivityService"/>
+        <activity android:name=".ActivityPesanan"/>
+        <activity android:name=".FinishService"/>
         <activity android:name=".ProfileService"/>
-        <activity
-            android:name=".ProfilCustomer"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light" />
-        <activity android:name=".BuatPesanan"
-            android:theme="@style/Theme.AppCompat.Light"/>
-        <activity
-            android:name=".TipsDaurCustomer"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light" />
-        <activity
-            android:name=".TipsNonDaurCustomer"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light" />
-        <activity
-            android:name=".SedangBerlangsungCustomer"
-            android:theme="@style/Theme.AppCompat.Light" />
-        <activity
-            android:name=".PesananDibatalkan"
-            android:theme="@style/Theme.AppCompat.Light" />
-        <activity
-            android:name=".AktivitasCustomer"
-            android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name=".EditProfileService"/>
+        <activity android:name=".TipsDaurCustomer"/>
+        <activity android:name=".TipsNonDaurCustomer"/>
     </application>
 </manifest>
