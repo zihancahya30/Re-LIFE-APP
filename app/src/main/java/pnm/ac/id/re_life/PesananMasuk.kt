@@ -33,7 +33,7 @@ class PesananMasuk : AppCompatActivity() {
         val noTelepon = intent.getStringExtra("telepon") ?: "-"
         val alamatTujuan = intent.getStringExtra("alamat") ?: "-"
         val detailAlamat = intent.getStringExtra("detail_alamat") ?: "-"
-        orderId = intent.getStringExtra("orderId") // ID pesanan
+        orderId = intent.getStringExtra("orderId") ?: ""// ID pesanan
 
         // Menghubungkan komponen UI
         val namaTextView: TextView = findViewById(R.id.tv_nama_pelanggan)

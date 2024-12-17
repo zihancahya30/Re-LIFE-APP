@@ -9,12 +9,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
 
-class HomeService : ComponentActivity() {
+class HomeService : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
     private lateinit var ordersRecyclerView: RecyclerView
@@ -23,6 +24,8 @@ class HomeService : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_service)
+
+        supportActionBar?.hide()
 
         // Inisialisasi Firebase Database
         database = FirebaseDatabase.getInstance().reference
@@ -46,8 +49,6 @@ class HomeService : ComponentActivity() {
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    // Tetap di halaman HomeService
-                    Toast.makeText(this, "Kamu sudah di Home", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_activity -> {
@@ -84,7 +85,7 @@ class HomeService : ComponentActivity() {
 
                 // Update RecyclerView Adapter
                 ordersAdapter = OrdersAdapter(this@HomeService, orders) { selectedOrder ->
-                    navigateToOrderDetails(selectedOrder)
+                    navigateToPesananMasuk(selectedOrder)
                 }
                 ordersRecyclerView.adapter = ordersAdapter
             }
@@ -99,8 +100,9 @@ class HomeService : ComponentActivity() {
         })
     }
 
-    private fun navigateToOrderDetails(order: Order) {
+    private fun navigateToPesananMasuk(order: Order) {
         val intent = Intent(this, PesananMasuk::class.java)
+        intent.putExtra("orderId", order.id)
         intent.putExtra("nama", order.namaLengkap)
         intent.putExtra("telepon", order.nomorTelepon)
         intent.putExtra("alamat", order.alamatLengkap)
@@ -120,9 +122,9 @@ data class Order(
 
 // Adapter untuk RecyclerView
 class OrdersAdapter(
-    private val context: ComponentActivity, // Tambahkan context
+    private val context: ComponentActivity,
     private val orders: List<Order>,
-    private val onOrderClick: (Order) -> Unit
+    private val onNextArrowClick: (Order) -> Unit
 ) : RecyclerView.Adapter<OrdersAdapter.OrderViewHolder>() {
 
     // ViewHolder untuk menyimpan referensi ke tampilan item
@@ -147,12 +149,7 @@ class OrdersAdapter(
 
         // Klik pada ikon nextArrow untuk membuka detail order
         holder.nextArrow.setOnClickListener {
-            val intent = Intent(context, PesananMasuk::class.java)
-            intent.putExtra("nama", order.namaLengkap)
-            intent.putExtra("telepon", order.nomorTelepon)
-            intent.putExtra("alamat", order.alamatLengkap)
-            intent.putExtra("detail_alamat", order.detailAlamat)
-            context.startActivity(intent)
+            onNextArrowClick(order)
         }
     }
 
