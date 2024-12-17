@@ -16,7 +16,6 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/iv_back"
         app:layout_constraintHorizontal_bias="0" />
 
     <!-- Alamat Pesanan -->
@@ -29,7 +28,6 @@
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nama_customer"
-        app:layout_constraintEnd_toStartOf="@id/iv_back"
         app:layout_constraintHorizontal_bias="0" />
 
     <!-- Nomor Telepon -->
@@ -42,7 +40,6 @@
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/alamat_pesanan_text"
-        app:layout_constraintEnd_toStartOf="@id/iv_back"
         app:layout_constraintHorizontal_bias="0" />
 
     <!-- Ikon panah untuk navigasi -->
