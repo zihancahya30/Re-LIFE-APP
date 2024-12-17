@@ -49,8 +49,6 @@ class HomeService : AppCompatActivity() {
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    // Tetap di halaman HomeService
-                    Toast.makeText(this, "Kamu sudah di Home", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_activity -> {
