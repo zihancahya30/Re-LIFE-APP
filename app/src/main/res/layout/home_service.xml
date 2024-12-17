@@ -6,67 +6,67 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/top_view"
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:background="@drawable/bg_view_top">
+    <RelativeLayout
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@drawable/bg_view_top">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:contentDescription="Logo"
-                android:src="@drawable/logo_relife" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="Logo"
+            android:src="@drawable/logo_relife" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="224dp"
+            android:gravity="center_horizontal"
+            android:text="RE-LIFE"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="Profil"
+            android:src="@drawable/default_profile" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
 
             <TextView
+                android:id="@+id/halo_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="224dp"
-                android:gravity="center_horizontal"
-                android:text="RE-LIFE"
+                android:text="Halo, "
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:contentDescription="Profil"
-                android:src="@drawable/default_profile" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/subtitle_text"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="90dp"
-                android:orientation="vertical"
-                android:paddingHorizontal="16dp">
-
-                <TextView
-                    android:id="@+id/halo_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Halo, "
-                    android:textColor="@android:color/white"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/subtitle_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bantu sekitar untuk menjaga lingkungan agar lebih baik"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </RelativeLayout>
+                android:text="Bantu sekitar untuk menjaga lingkungan agar lebih baik"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/pesanan_card_secondary"
@@ -167,70 +167,70 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-            android:id="@+id/tatacara_card"
+        android:id="@+id/tatacara_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
+            android:background="@color/hijau_telur"
+            android:padding="8dp"
+            android:text="Tata Cara Pengelolaan"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
 
-            <TextView
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"
+        android:justificationMode="inter_word"
+        android:text="Sebagai Petugas Kebersihan yang baik, anda perlu mengetahui tata cara pengumpulan sampah ke bank sampah yang baik dan benar. baca informasi di bawah ini untuk mengetahuinya."
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/ic_tatacara"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/hijau_telur"
-                android:padding="8dp"
-                android:text="Tata Cara Pengelolaan"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:contentDescription="Tata Cara"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_tatacara" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:justificationMode="inter_word"
-            android:text="Sebagai Petugas Kebersihan yang baik, anda perlu mengetahui tata cara pengumpulan sampah ke bank sampah yang baik dan benar. baca informasi di bawah ini untuk mengetahuinya."
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Tatacara dan langkah-langkah pengambilan sampah"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_marginTop="10dp">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_gravity="center"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp">
-
-                <ImageView
-                    android:id="@+id/ic_tatacara"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="Tata Cara"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_tatacara" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="Tatacara dan langkah-langkah pengambilan sampah"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-        </FrameLayout>
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"

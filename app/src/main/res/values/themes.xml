@@ -1,16 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tema utama untuk aplikasi -->
-    <style name="Theme.RE_LIFE" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Warna untuk Button -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/secondary</item>
-        <item name="colorSecondary">@color/secondary</item>
-    </style>
-
-    <!-- Tema khusus untuk Bottom Navigation -->
-    <style name="Theme.RE_LIFE.BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="android:background">@color/bottom_nav_background</item>
-        <item name="itemIconTint">@color/bottom_nav_icon_tint</item>
-        <item name="itemTextColor">@color/bottom_nav_icon_tint_active</item>
-    </style>
+    <style name="Theme.RE_LIFE" parent="android:Theme.Material.Light.NoActionBar"/>
 </resources>
