@@ -42,22 +42,32 @@ class HomeService : AppCompatActivity() {
             })
         }
 
-        // Mengatur bottom navigation
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.nav_home -> true
+        // Menambahkan fungsi untuk BottomNavigationView
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_home_service)
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // Tetap di halaman Home
+                    true
+                }
                 R.id.nav_activity -> {
-                    startActivity(Intent(this, ActivityService::class.java))
+                    // Pindah ke halaman Aktivitas
+                    val intent = Intent(this, ActivityService::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.nav_profile -> {
-                    startActivity(Intent(this, ProfileService::class.java))
+                    // Pindah ke halaman Profil
+                    val intent = Intent(this, ProfileService::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false
             }
         }
+
+        // Untuk memastikan item navbar yang aktif sesuai halaman saat ini
+        bottomNav.selectedItemId = R.id.nav_home
 
         // Handle "Tata Cara" ImageView Click
         findViewById<ImageView>(R.id.ic_tatacara).setOnClickListener {

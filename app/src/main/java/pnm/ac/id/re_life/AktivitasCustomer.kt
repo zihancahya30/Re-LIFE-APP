@@ -1,16 +1,53 @@
 package pnm.ac.id.re_life
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.database.*
+import pnm.ac.id.re_life.adapter.SedangBerlangsungAdapter
+import pnm.ac.id.re_life.model.Pesanan
 
 class AktivitasCustomer : AppCompatActivity() {
+
+    private lateinit var sedangBerlangsungAdapter: SedangBerlangsungAdapter
+    private lateinit var riwayatAdapter: SedangBerlangsungAdapter
+
+    private lateinit var recyclerSedangBerlangsung: RecyclerView
+    private lateinit var recyclerRiwayat: RecyclerView
+    private lateinit var noSedangBerlangsung: TextView
+    private lateinit var noRiwayat: TextView
+
+    private lateinit var database: DatabaseReference
+    private val pesananListSedang = mutableListOf<Pesanan>()
+    private val pesananListRiwayat = mutableListOf<Pesanan>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Mengatur agar tidak ada Action Bar
+        supportActionBar?.hide()
         setContentView(R.layout.aktivitas_customer)
 
-        supportActionBar?.hide()
+        // Inisialisasi RecyclerView dan TextView
+        recyclerSedangBerlangsung = findViewById(R.id.recycler_sedang_berlangsung)
+        recyclerRiwayat = findViewById(R.id.recycler_riwayat)
+        noSedangBerlangsung = findViewById(R.id.text_no_sedang_berlangsung)
+        noRiwayat = findViewById(R.id.text_no_riwayat)
+
+        // Mengatur layout manager untuk RecyclerView
+        recyclerSedangBerlangsung.layoutManager = LinearLayoutManager(this)
+        recyclerRiwayat.layoutManager = LinearLayoutManager(this)
+
+        // Inisialisasi Firebase Database
+        database = FirebaseDatabase.getInstance().getReference("Orders")
+
+        // Fungsi untuk mengambil data pesanan
+        fetchPesanan()
 
         // Menambahkan fungsi untuk BottomNavigationView
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_aktivitas)
@@ -24,11 +61,14 @@ class AktivitasCustomer : AppCompatActivity() {
                     true
                 }
                 R.id.nav_relife -> {
-                    // Tidak perlu aksi jika sudah di halaman RE-Life
+                    // Pindah ke halaman RE-Life
+                    val intent = Intent(this, BuatPesanan::class.java)
+                    startActivity(intent)
+                    finish() // Menutup aktivitas AktivitasCustomer
                     true
                 }
                 R.id.nav_activity -> {
-                    // Pindah ke halaman AktivitasCustomer, tidak perlu menambah aktivitas
+                    // Tetap di halaman AktivitasCustomer
                     true
                 }
                 R.id.nav_profile -> {
@@ -42,6 +82,41 @@ class AktivitasCustomer : AppCompatActivity() {
             }
         }
 
-        bottomNav.selectedItemId = R.id.nav_activity // Menetapkan item yang aktif
+        // Menetapkan item yang aktif di BottomNavigationView
+        bottomNav.selectedItemId = R.id.nav_activity
+    }
+
+    private fun fetchPesanan() {
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                pesananListSedang.clear()
+                pesananListRiwayat.clear()
+
+                for (data in snapshot.children) {
+                    val pesanan = data.getValue(Pesanan::class.java)
+                    if (pesanan != null) {
+                        if (pesanan.status == "Belum Diambil") {
+                            pesananListSedang.add(pesanan)
+                        } else if (pesanan.status == "Sudah Diambil") {
+                            pesananListRiwayat.add(pesanan)
+                        }
+                    }
+                }
+
+                // Update adapters
+                sedangBerlangsungAdapter = SedangBerlangsungAdapter(pesananListSedang)
+                riwayatAdapter = SedangBerlangsungAdapter(pesananListRiwayat)
+                recyclerSedangBerlangsung.adapter = sedangBerlangsungAdapter
+                recyclerRiwayat.adapter = riwayatAdapter
+
+                // Menangani tampilan jika tidak ada data
+                noSedangBerlangsung.visibility = if (pesananListSedang.isEmpty()) View.VISIBLE else View.GONE
+                noRiwayat.visibility = if (pesananListRiwayat.isEmpty()) View.VISIBLE else View.GONE
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@AktivitasCustomer, "Gagal mengambil data", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }

@@ -22,18 +22,22 @@ class LoginService : ComponentActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_service)
 
+        // Inisialisasi elemen UI
         etEmail = findViewById(R.id.et_email)
         etPasswd = findViewById(R.id.et_passwd)
         btnLogin = findViewById(R.id.btnLogin)
+        val backLogin: ImageView = findViewById(R.id.back_login)
 
         // Inisialisasi FirebaseAuth
         firebaseAuth = FirebaseAuth.getInstance()
 
+        // Set listener untuk tombol login dan back
         btnLogin.setOnClickListener(this)
-        val ivBack: ImageView = findViewById(R.id.iv_back)
-        ivBack.setOnClickListener {
-            // Menavigasi kembali ke halaman sebelumnya
-            onBackPressed()
+        backLogin.setOnClickListener {
+            // Navigasi kembali ke halaman register service
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -48,8 +52,16 @@ class LoginService : ComponentActivity(), View.OnClickListener {
                     etEmail.error = "Email tidak boleh kosong"
                     return
                 }
+                if (!email.endsWith("@gmail.com")) {
+                    etEmail.error = "Email harus menggunakan @gmail.com"
+                    return
+                }
                 if (password.isEmpty()) {
                     etPasswd.error = "Password tidak boleh kosong"
+                    return
+                }
+                if (!isPasswordValid(password)) {
+                    etPasswd.error = "Password harus mengandung minimal 1 huruf besar dan 1 angka"
                     return
                 }
 
@@ -70,5 +82,12 @@ class LoginService : ComponentActivity(), View.OnClickListener {
                     }
             }
         }
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        // Cek apakah password mengandung minimal satu huruf besar dan satu angka
+        val containsUpperCase = password.any { it.isUpperCase() }
+        val containsDigit = password.any { it.isDigit() }
+        return containsUpperCase && containsDigit
     }
 }

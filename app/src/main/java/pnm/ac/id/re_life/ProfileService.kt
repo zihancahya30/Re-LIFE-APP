@@ -1,13 +1,9 @@
 package pnm.ac.id.re_life
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import android.text.InputType
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -16,109 +12,173 @@ import com.google.firebase.database.FirebaseDatabase
 
 class ProfileService : AppCompatActivity() {
 
-    private lateinit var etNama: EditText
-    private lateinit var etEmail: EditText
-    private lateinit var etNomor: EditText
-    private lateinit var btnEdit: Button
-    private lateinit var tvLogout: TextView
-
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var database: DatabaseReference
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var etNamaLengkap: EditText
+    private lateinit var etEmail: EditText
+    private lateinit var etNomorTelepon: EditText
+    private lateinit var etPassword: EditText
+    private lateinit var btnEditProfil: Button
+    private lateinit var btnLogout: TextView
+    private lateinit var btnTogglePassword: ImageView
+
+    private var isEditing = false
+    private var isPasswordVisible = false
+    private var currentPassword = "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022" // Placeholder password
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile_service)
 
-        // Menghapus ActionBar
         supportActionBar?.hide()
 
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
+        // Inisialisasi Firebase
+        firebaseAuth = FirebaseAuth.getInstance()
+        databaseReference = FirebaseDatabase.getInstance().reference
+
+        // Inisialisasi komponen UI
+        etNamaLengkap = findViewById(R.id.et_nama_lengkap)
+        etEmail = findViewById(R.id.et_email)
+        etNomorTelepon = findViewById(R.id.et_nomor_telepon)
+        etPassword = findViewById(R.id.et_password)
+        btnEditProfil = findViewById(R.id.btn_edit_profil)
+        btnLogout = findViewById(R.id.btn_logout)
+        btnTogglePassword = findViewById(R.id.iv_toggle_password)
+
+        setEditTextEnabled(false) // Default tidak bisa diedit
+        getUserData()
+
+        // Tombol Edit/Simpan
+        btnEditProfil.setOnClickListener {
+            toggleEditSave()
+        }
+
+        // Tombol Logout
+        btnLogout.setOnClickListener {
+            logoutUser()
+        }
+
+        // Tombol Toggle Password Visibility
+        btnTogglePassword.setOnClickListener {
+            togglePasswordVisibility()
+        }
+
+        // Bottom Navigation
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_profil_service)
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
                 R.id.nav_home -> {
+                    startActivity(Intent(this, HomeService::class.java))
                     true
                 }
                 R.id.nav_activity -> {
                     startActivity(Intent(this, ActivityService::class.java))
                     true
                 }
-                R.id.nav_profile -> {
-                    startActivity(Intent(this, ProfileService::class.java))
-                    true
-                }
+                R.id.nav_profile -> true
                 else -> false
             }
         }
-
-        // Inisialisasi FirebaseAuth dan DatabaseReference
-        firebaseAuth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance().reference
-
-        // Inisialisasi EditText, Button dan TextView
-        etNama = findViewById(R.id.et_nama)
-        etNomor = findViewById(R.id.et_notelp)
-        etEmail = findViewById(R.id.et_email)
-        btnEdit = findViewById(R.id.btnEdit)
-        tvLogout = findViewById(R.id.tvLogout)
-
-        // Ambil data pengguna dari Firebase
-        getUserData()
-
-        // Nonaktifkan EditText jika tidak ingin pengguna mengubah data
-        etNama.isEnabled = false
-        etNomor.isEnabled = false
-        etEmail.isEnabled = false
-
-        // Menangani tombol Edit
-        btnEdit.setOnClickListener {
-            val intent = Intent(this, EditProfileService::class.java)
-            startActivity(intent)
-        }
-
-        // Menangani tombol Logout
-        tvLogout.setOnClickListener {
-            showLogoutDialog()
-        }
+        bottomNav.selectedItemId = R.id.nav_profile
     }
 
     private fun getUserData() {
         val user = firebaseAuth.currentUser
         user?.let {
             val userId = it.uid
-            // Ambil data pengguna dari Firebase Realtime Database
-            database.child("service").child(userId).get().addOnSuccessListener { snapshot ->
+            databaseReference.child("service").child(userId).get().addOnSuccessListener { snapshot ->
                 if (snapshot.exists()) {
-                    val name = snapshot.child("name").value.toString()
-                    val nomorHp = snapshot.child("nomorHp").value.toString()
-                    val email = snapshot.child("email").value.toString()
+                    val namaLengkap = snapshot.child("name").value?.toString() ?: ""
+                    val email = snapshot.child("email").value?.toString() ?: ""
+                    val nomorTelepon = snapshot.child("nomorHp").value?.toString() ?: ""
 
-                    // Tampilkan data ke EditText
-                    etNama.setText(name)
-                    etNomor.setText(nomorHp)
+                    etNamaLengkap.setText(namaLengkap)
                     etEmail.setText(email)
+                    etNomorTelepon.setText(nomorTelepon)
+                    etPassword.setText(currentPassword)
                 } else {
                     Toast.makeText(this, "Data pengguna tidak ditemukan", Toast.LENGTH_SHORT).show()
                 }
-            }.addOnFailureListener { exception ->
-                Toast.makeText(this, "Gagal mengambil data: ${exception.message}", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Gagal mengambil data: ${it.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun showLogoutDialog() {
-        val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle("Logout")
-        alertDialog.setMessage("Apakah Anda yakin untuk keluar?")
-        alertDialog.setPositiveButton("Iya") { dialog, _ ->
-            dialog.dismiss()
-            firebaseAuth.signOut()
-            val intent = Intent(this, Register::class.java)
-            startActivity(intent)
-            finish()
+    private fun toggleEditSave() {
+        if (isEditing) {
+            val updatedNamaLengkap = etNamaLengkap.text.toString()
+            val updatedEmail = etEmail.text.toString()
+            val updatedNomorTelepon = etNomorTelepon.text.toString()
+            val updatedPassword = etPassword.text.toString()
+
+            val userId = firebaseAuth.currentUser?.uid
+            userId?.let { uid ->
+                val userRef = databaseReference.child("service").child(uid)
+                val updates = mutableMapOf<String, Any>()
+
+                if (updatedNamaLengkap.isNotEmpty()) updates["name"] = updatedNamaLengkap
+                if (updatedEmail.isNotEmpty()) updates["email"] = updatedEmail
+                if (updatedNomorTelepon.isNotEmpty()) updates["nomorHp"] = updatedNomorTelepon
+
+                // Perbarui password hanya jika diubah
+                if (updatedPassword != currentPassword) {
+                    if (isValidPassword(updatedPassword)) {
+                        firebaseAuth.currentUser?.updatePassword(updatedPassword)
+                            ?.addOnSuccessListener {
+                                Toast.makeText(this, "Password berhasil diperbarui", Toast.LENGTH_SHORT).show()
+                            }
+                            ?.addOnFailureListener {
+                                Toast.makeText(this, "Gagal memperbarui password", Toast.LENGTH_SHORT).show()
+                            }
+                    } else {
+                        Toast.makeText(this, "Password harus mengandung huruf besar dan angka", Toast.LENGTH_SHORT).show()
+                        return
+                    }
+                }
+
+                userRef.updateChildren(updates)
+                    .addOnSuccessListener { Toast.makeText(this, "Profil berhasil diperbarui", Toast.LENGTH_SHORT).show() }
+                    .addOnFailureListener { Toast.makeText(this, "Gagal memperbarui profil", Toast.LENGTH_SHORT).show() }
+            }
+            setEditTextEnabled(false)
+            btnEditProfil.text = "Edit Profil"
+        } else {
+            setEditTextEnabled(true)
+            btnEditProfil.text = "Simpan"
         }
-        alertDialog.setNegativeButton("Tidak") { dialog, _ ->
-            dialog.dismiss()
+        isEditing = !isEditing
+    }
+
+    private fun setEditTextEnabled(enabled: Boolean) {
+        etNamaLengkap.isEnabled = enabled
+        etEmail.isEnabled = enabled
+        etNomorTelepon.isEnabled = enabled
+        etPassword.isEnabled = enabled
+    }
+
+    private fun togglePasswordVisibility() {
+        isPasswordVisible = !isPasswordVisible
+        etPassword.inputType = if (isPasswordVisible) {
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL
+        } else {
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         }
-        alertDialog.create().show()
+        etPassword.setSelection(etPassword.text.length)
+        btnTogglePassword.setImageResource(
+            if (isPasswordVisible) R.drawable.visibility_24px
+            else R.drawable.visibility_off_24px
+        )
+    }
+
+    private fun logoutUser() {
+        firebaseAuth.signOut()
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        val passwordRegex = Regex("^(?=.*[A-Z])(?=.*\\d).+$")
+        return password.matches(passwordRegex)
     }
 }

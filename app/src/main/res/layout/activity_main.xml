@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textColor="@color/black"
+        android:fontFamily="@font/poppins_regular"
         android:justificationMode="inter_word"
         android:text="Selamat datang di RE-LIFE, solusi praktis untuk pengelolaan sampah yang lebih bijak! Dengan RE-LIFE, Anda bisa memesan jasa pengumpulan sampah ke bank sampah, belajar memisahkan sampah organik dan anorganik, serta mendapatkan informasi terkini tentang cara pengelolaan sampah yang benar. Bersama, kita bisa mengatasi masalah sampah di Indonesia dan menciptakan lingkungan yang lebih bersih dan sehat!!" />
 
@@ -28,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Mulai Sekarang"
+        android:fontFamily="@font/poppins_regular"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"/>

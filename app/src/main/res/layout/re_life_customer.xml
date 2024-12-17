@@ -35,8 +35,9 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
                 android:text="RE-Life"
+                android:fontFamily="@font/poppins_regular"
                 android:textColor="@color/white"
-                android:textSize="35sp"
+                android:textSize="28sp"
                 android:textStyle="bold"/>
         </LinearLayout>
 
@@ -55,7 +56,8 @@
                 android:paddingLeft="12dp"
                 android:text="Pesan Layanan Pengumpulan Sampah ke Bank Sampah dengan Mudah – Bersihkan Rumah, Jaga Lingkungan Bersama Re-Life!"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins_regular"
                 android:textStyle="bold"/>
 
             <ImageView
@@ -76,15 +78,16 @@
         android:orientation="vertical"
         android:background="@drawable/bg_detail"
         android:padding="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="16dp"
         android:layout_gravity="center"
         android:clipToPadding="false">
 
         <TextView
             android:text="Buat Pesanan Anda"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
+            android:textSize="13sp"
+            android:fontFamily="@font/poppins_regular"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -93,7 +96,8 @@
             android:text="Alamat Lengkap"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
+            android:fontFamily="@font/poppins_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -101,7 +105,7 @@
             android:layout_marginTop="5dp"
             android:id="@+id/et_alamat_lengkap"
             android:hint="Isikan Alamat Lengkap Anda"
-            android:textStyle="italic"
+            android:fontFamily="@font/poppins_regular"
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -111,8 +115,9 @@
         <TextView
             android:text="Detail Alamat"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:paddingTop="5dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingTop="3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -120,7 +125,7 @@
             android:layout_marginTop="5dp"
             android:id="@+id/et_detail_alamat"
             android:hint="Isikan Detail Alamat Anda"
-            android:textStyle="italic"
+            android:fontFamily="@font/poppins_regular"
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="110dp"
@@ -130,8 +135,9 @@
         <TextView
             android:text="Nama Lengkap"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:paddingTop="5dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingTop="3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -140,7 +146,7 @@
             android:layout_marginTop="5dp"
             android:id="@+id/namaLengkap"
             android:hint="Masukan Nama Anda"
-            android:textStyle="italic"
+            android:fontFamily="@font/poppins_regular"
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -150,8 +156,9 @@
         <TextView
             android:text="Nomor Telepon"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:paddingTop="5dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingTop="3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -160,7 +167,7 @@
             android:layout_marginTop="5dp"
             android:id="@+id/nomorTelfon"
             android:hint="Masukan Nomor Telepon"
-            android:textStyle="italic"
+            android:fontFamily="@font/poppins_regular"
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -172,6 +179,7 @@
             android:id="@+id/btn_pesan_sekarang"
             android:text="Pesan Sekarang"
             android:layout_width="250dp"
+            android:fontFamily="@font/poppins_regular"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_button_kumpul"
             android:textColor="#000000"
@@ -186,7 +194,7 @@
         android:id="@+id/bottom_nav_buat_pesanan"
         android:layout_gravity="bottom"
         android:layout_weight="@integer/material_motion_duration_long_1"
-        app:menu="@menu/bottom_navigation_menu"
+        app:menu="@menu/bottom_navigation_menu_customer"
         android:background="@drawable/bg_navbar"
         app:itemIconTint="@color/selector_nav_icon"
         app:itemTextColor="@color/selector_nav_text"/>

@@ -55,7 +55,7 @@ class BuatPesanan : AppCompatActivity() {
                     "detailAlamat" to detailAlamat,
                     "namaLengkap" to namaLengkap,
                     "nomorTelepon" to nomorTelepon,
-                    "status" to "Sedang Diproses" // Status awal pesanan
+                    "status" to "Belum Diambil" // Status awal pesanan
                 )
 
                 // Simpan data ke Firebase
